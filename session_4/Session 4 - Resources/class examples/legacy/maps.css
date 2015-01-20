@@ -1,0 +1,36 @@
+/* Phone (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+html, body, #map-canvas {
+height: 300px;
+width:200px;
+margin: 0px;
+padding: 0px
+}
+}
+
+/* Phone (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+html, body, #map-canvas {
+height: 200px;
+width:400px;
+margin: 0px;
+padding: 0px
+}
+}
+
+/* Phone (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+html, body, #map-canvas {
+height: 300px;
+width:200px;
+margin: 0px;
+padding: 0px
+}
+}
+
+
+ 

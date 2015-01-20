@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Map Navigation</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="maps.css">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="maps.js">
+    </script>
+  </head>
+  <body>
+	<div data-role="page">
+	    <div data-role="header">
+		    <h1>Map Example</h1>
+	    </div>
+		<div data-role="content">
+          <div id="map-canvas"></div>
+		  <p>Click on a marker to view a hotel</p>
+		</div> 
+		<div data-role="footer" data-position="fixed" data-id="footernav">
+		   <div data-role="navbar">
+			    <ul>
+				   <li><a href="mapnav.html" class="ui-state-persist ui-btn-active">Locations</a></li>
+		           <li><a href="contact.html">Contact</a></li>
+			       <li><a href="about.html">About</a></li>
+			       <li><a href="login.html">Login</a></li>
+				</ul>   
+			 </div>
+	     </div>
+    </div>
+  </body>
+</html>

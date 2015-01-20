@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	   <meta charset="utf-8">
+	   <title>Mobile App Development</title>
+	   <meta name="viewport" content="width=device-width, user-scalable=no">
+	   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+       <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	</head>
+	<body>
+	   <div data-role="page" id="main">
+		  <div data-role="header">
+			 <h1>Introducing Page Sections</h1>
+		  </div>
+		  <div data-role="content">	
+			 <p>This page has a header, contect section and footer</p>
+			 <p>To view me in a mobile device, go to <a href="http://www.mobilephoneemulator.com/" target="_blank">Mobile Phone Emulator</a> and paste in my URL.</p>
+			 <div data-role="collapsible-set">
+				<div data-role="collapsible" data-collapsed="false">
+				   <h3>Section 1</h3>
+				   <p>Collapsible Content 1</p>
+				   <a href="#second" data-transition="slidefade">Second page</a>
+				</div>
+				<div data-role="collapsible">
+				   <h3>Section 2</h3>
+				   <p>Collapsible Content 2</p>
+			   </div>
+			 </div>
+		  </div>
+		  <div data-role="footer">
+			<h4>Footer content</h4>
+		  </div>
+	   </div>
+	   <div data-role="page" id="second">
+		  <div data-role="header">
+			 <a href="" data-rel="back" data-transition="slidefade" data-direction="reverse">Go Back </a>
+			 <h1>Second Page</h1>
+		  </div>
+		  <div data-role="content">	
+			 <h2>Second Page</h2>
+			 <p>This is the second page in a multipage JQM web app. To view me in a mobile device, go to <a href="http://www.mobilephoneemulator.com/" target="_blank">Mobile Phone Emulator</a> and paste in my URL.</p>		
+		  </div>
+		  <div data-role="footer">
+			 <h4>Page Footer</h4>
+		 </div>
+	   </div>
+	</body>
+</html>
