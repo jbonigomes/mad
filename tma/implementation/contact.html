@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Zedland Hotels</title>
+  <title>Zedland University</title>
 
   <link
     rel="stylesheet"
     href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+  <link rel="stylesheet" href="styles.css" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+
+  <!-- Map -->
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="map.js"></script>
 </head>
 <body>
   <div data-role="page" id="contact">
@@ -22,10 +27,22 @@
          data-direction="reverse">
         Home
       </a>
-      <h1>Zedland Hotel Finder</h1>
+      <h1>Zedland</h1>
     </div>
     <div data-role="content">
       <h2>Contact</h2>
+
+      <div role="main" class="ui-content" id="map-canvas">
+        <!-- map loads here... -->
+      </div>
+
+      <address>
+        Malet Street,<br>
+        London<br>
+        WC1E 7HX<br><br>
+        Phone: <a href="tel:+442076316000">020 7631 6000</a>
+      </address>
+
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar" data-id="footernav">
