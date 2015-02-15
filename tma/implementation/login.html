@@ -6,13 +6,17 @@
 
   <title>Zedland University</title>
 
-  <link
-    rel="stylesheet"
-    href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/styles.css" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+  <script src="assets/main.js"></script>
 </head>
 <body>
   <div data-role="page" id="login">
@@ -20,13 +24,18 @@
       <a href="#home"
          data-icon="home"
          data-transition="slidefade"
-         data-direction="reverse">
-        Home
+         data-direction="reverse"
+         data-iconpos="notext"
+         data-role="button"
+         role="button">
       </a>
       <h1>Zedland</h1>
     </div>
     <div data-role="content">
       <h2>Login</h2>
+
+      <p>Do not have an account? <a href="#">Register</a></p>
+
       <form>
 
         <div data-role="fieldcontain">
@@ -42,22 +51,34 @@
         <div data-role="fieldcontain">
           <button>Login</button>
         </div>
+
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <input type="checkbox" name="remeberme" id="rememberme" />
+            <label for="rememberme">Remember me</label>
+          </fieldset>
+        </div>
+
       </form>
+
+      <p><a href="#">Lost Password?</a></p>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar" data-id="footernav">
         <ul>
           <li>
-            <a href="about.html"data-prefetch>About</a>
+            <a href="about.html">
+              About
+            </a>
           </li>
           <li>
-            <a href="contact.html"data-prefetch>Contact</a>
+            <a href="contact.html">
+              Contact
+            </a>
           </li>
           <li>
-            <a href="login.html"
-               class="ui-state-persist ui-btn-active"
-               data-prefetch>
-               Login
+            <a href="login.html" class="ui-state-persist ui-btn-active">
+              Login
             </a>
           </li>
         </ul>
