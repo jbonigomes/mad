@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Zedland Hotel Finder</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+	  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	  <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	  <link rel="stylesheet" type="text/css" href="hotelmap.css">
+	  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	  <script src="hotelmap.js"></script>
+	</head>
+	<body>
+	  <div data-role="page" id="map-page">
+			<div data-role="header">
+			   <a href="zedland-hotels.html" data-icon="home" data-iconpos="notext"></a>
+			   <h1>Zedland Hotels</h1>
+			</div>
+			<div data-role="content" id="map-container">
+			   <div id="map-canvas"></div>
+			   <p id="nogeolocation"></p>
+			</div> 
+			<div data-role="footer" data-position="fixed">
+			   <div data-role="navbar" data-id="footernav">
+				   <ul>
+					 <li><a href="about.html" data-prefetch data-icon="info">About</a></li>
+			         <li><a href="contact.html" data-prefetch data-icon="mail">Contact</a></li>
+			         <li><a href="login.html" data-prefetch data-icon="user">Login</a></li>
+				   </ul>
+			   </div>
+			 </div>
+		</div>
+	</body>
+</html>
