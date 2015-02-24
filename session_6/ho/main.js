@@ -69,6 +69,7 @@ $(document).on('pagecreate', function() {
   $('#addbtn').click(function() {
     if(typeof(Storage) != 'undefined') {
       setDetails(getTitle(), getUrl());
+      $('#addedtofavourites').html('Succesfully added to favourites');
     } else {
       $('#nostorage').text('Local storage not supported');
     }
@@ -91,7 +92,11 @@ $(document).on('pagecreate', function() {
       hotelurl: url
     };
 
-    localStorage.setItem('hotels', JSON.stringify(hotel));
+    var storedHotels = JSON.parse(localStorage.getItem('hotels')) || [];
+
+    storedHotels.push(hotel);
+
+    localStorage.setItem('hotels', JSON.stringify(storedHotels));
   }
 });
 
@@ -113,12 +118,23 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   }
 
   function displayHotelDetails(details) {
-    var hotel = '' +
-      '<a href="' + details.hotelurl + '.html"' +
-      '   class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right">' +
-          details.name +
-      '</a>';
+
+    if(details !== null) {
+
+      var hotel = '';
+
+      details.forEach(function(detail) {
+        hotel += '' +
+          '<a href="' + detail.hotelurl + '.html"' +
+          '   class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right">' +
+              detail.name +
+          '</a>';
+      });
 
       $('#hotel').html(hotel);
+
+    } else {
+      $('#nostorage').html('You do not have any hotels in your list yet');
+    }
   }
 });
