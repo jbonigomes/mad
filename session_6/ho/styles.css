@@ -1,0 +1,40 @@
+html, body, #map-page, #map-container {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+div#map-canvas {
+	width: 100%;
+	height: 100%;
+}
+
+#navcontainer ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style-type: none;
+}
+
+#navcontainer a {
+	color: #000;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	padding: 3px 12px 3px 8px;
+	border-bottom: 1px solid #000;
+}
+
+#navcontainer li li a {
+	width: 100%;
+	display: block;
+	font-weight: lighter;
+	text-decoration: none;
+	padding: 3px 3px 3px 17px;
+	border-bottom: 1px solid #000;
+}
+
+#navcontainer a:hover {
+	background-color: #E8E8E8;
+}
