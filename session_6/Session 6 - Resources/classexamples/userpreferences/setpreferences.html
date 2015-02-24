@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<title>Local Storage</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<script src="getpreferences.js"></script>
+	<script src="setpreferences.js"></script>
+</head>
+<body>
+	<div data-role="page" id="setpreferences">
+		<div data-role="header">
+			<h1>Local Storage</h1>
+		</div>
+		<div data-role="content">
+			<h2>Set Your Preferences</h2>
+			<form id="prefForm">
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Text Color:</legend>
+						<input type="radio" name="radiobtncol" id="default" value="default" checked="checked" />
+						<label for="default">Default</label>
+						<input type="radio" name="radiobtncol" id="blue" value="blue"  />
+						<label for="blue">Blue</label>
+						<input type="radio" name="radiobtncol" id="green" value="green"  />
+						<label for="green">Green</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Text Size:</legend>
+						<input type="radio" name="radiobtntxt" id="normal" value="normal" checked="checked" />
+						<label for="normal">Normal</label>
+						<input type="radio" name="radiobtntxt" id="large" value="large"  />
+						<label for="large">Large</label>
+						<input type="radio" name="radiobtntxt" id="extra" value="extra"  />
+						<label for="extra">Extra</label>
+					</fieldset>
+				</div>
+				<input type="submit" class="ui-btn" value="Submit">
+			</form>
+			<div id="result"></div>
+			<div id="nostorage"></div>
+		</div> 
+		<div data-role="footer" data-position="fixed" data-id="footernav">
+			<h4> Footer Info</h4>
+		</div>
+	</div>
+</body>
+</html>
