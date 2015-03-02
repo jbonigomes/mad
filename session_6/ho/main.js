@@ -1,3 +1,5 @@
+
+// Map page
 $(document).on('pagecontainershow', function(e, ui) {
 
   var page = ui.toPage[0].id;
@@ -10,106 +12,155 @@ $(document).on('pagecontainershow', function(e, ui) {
     }
   }
   else {
-    $('#nogeolocation').innerHTML = "Geolocation is not supported by this browser.";
+    $('#nogeolocation')
+      .innerHTML = 'Geolocation is not supported by this browser.';
   }
 });
 
-
-function initialize(position) {
-
-  var lat = position.coords.latitude;
-  var lon = position.coords.longitude;
-  var currentPosition = new google.maps.LatLng(lat, lon);
-  var churchillHotelPosition = new google.maps.LatLng(51.52307,-0.12426);
-
-  var mapOptions = {
-    zoom: 12,
-    center: currentPosition,
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-    }
-  };
-
-  var hotelMap = new google.maps.Map(document.getElementById('map'), mapOptions);
-  var currentPositionImage = 'http://www.dcs.bbk.ac.uk/lo/mad/madexamples/session5/classactivities/zedlandhotels/icons/currentlocation.png';
-
-  var userPosition = new google.maps.Marker({
-    position: currentPosition,
-    map: hotelMap,
-    icon: currentPositionImage,
-    title: 'You are here'
-  });
-
-  var churchillHotelMarkerImage = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|FF0000|000000';
-  var churchillPosition = new google.maps.Marker({
-    position: churchillHotelPosition,
-    map: hotelMap,
-    icon: churchillHotelMarkerImage,
-    title: 'Churchill Hotel'
-  });
-
-  var churchillHotelInfo =
-    '<div id="mappopup">'+
-      '<h4>Churchill Hotel</h4>'+
-      '<p>Five Star Hotel in the middle of capital city</p>' +
-      '<a href="churchill-hotel.html">Details</a>' +
-    '</div>';
-
-  var churchillHotelInfoWindow = new google.maps.InfoWindow({
-    content: churchillHotelInfo
-  });
-
-  google.maps.event.addListener(churchillPosition, 'click', function() {
-    churchillHotelInfoWindow.open(hotelMap, churchillPosition);
-  });
-}
-
+// General page create event
 $(document).on('pagecreate', function() {
-  $('#addbtn').click(function() {
-    if(typeof(Storage) != 'undefined') {
-      setDetails(getTitle(), getUrl());
-      $('#addedtofavourites').html('Succesfully added to favourites');
-    } else {
-      $('#nostorage').text('Local storage not supported');
+
+  // Catch login form submit
+  $('#frm1').on('submit', function(e) {
+    e.preventDefault();
+    if($(this).valid()) {
+      $.mobile.navigate('booking.html');
     }
   });
 
-  function getTitle() {
-    var title = $('#hoteltitle').text();
-    return title;
-  }
+  // Catch booking form submit
+  $('#frm2').on('submit', function(e) {
+    e.preventDefault();
+    if($(this).valid()) {
+      $.mobile.navigate('bookingresults.html');
+    }
+  });
 
-  function getUrl() {
-    var title = $('#hoteltitle').text();
-    var url = title.replace(/\s+/g, '-').toLowerCase();
-    return url;
-  }
-
-  function setDetails(title, url) {
-    var hotel = {
-      name: title,
-      hotelurl: url
-    };
-
-    var storedHotels = JSON.parse(localStorage.getItem('hotels')) || [];
-
-    storedHotels.push(hotel);
-
-    localStorage.setItem('hotels', JSON.stringify(storedHotels));
-  }
+  // Init form validation
+  $('#frm1').validate();
+  $('#frm2').validate();
 });
 
 
+// My hotels page
 $(document).on('pagecontainerbeforeshow', function(e, ui) {
-  var page = ui.toPage[0].id;
+
+  var page   = ui.toPage[0];
+  var pageid = page.id;
   
-  if(page == 'myhotels') {
+  if(pageid == 'myhotels') {
     if(typeof(Storage) != 'undefined') {
       displayHotelDetails(getHotelDetails());
     } else {
       $('#nostorage').text('Local storage not supported');
     }
+  }
+
+  // Add the favourites button
+  var active = '';
+
+  if(isFavourite()) {
+    active = 'active';
+  }
+
+  var favouritesButton = '<a id="addbtn" href="#" class="ui-btn ui-icon-star ' +
+    'ui-btn-icon-left ui-corner-all ' + active + '">Favourites</a>';
+
+  $('.favourites').html(favouritesButton);
+
+  // Add to favourites action
+  $('body').on('click', '#addbtn', function() {
+
+    if(typeof(Storage) != 'undefined') {
+
+      if($(this).hasClass('active')) {
+        removeDetails(getTitle($(this)));
+        $(this).removeClass('active');
+      } else {
+        setDetails(getTitle($(this)), getUrl());
+        $(this).addClass('active');
+      }
+    } else {
+      $(this).addClass('ui-btn-hidden');
+      $('#nostorage').text('Local storage not supported');
+    }
+  });
+
+  function isFavourite() {
+    var exists       = false;
+    var url          = getUrl();
+    var storedHotels = getHotelDetails() || [];
+
+    storedHotels.forEach(function(hotel) {
+      if(hotel.hotelurl == url) {
+        exists = true;
+      }
+    });
+
+    return exists;
+  }
+
+  function getTitle(obj) {
+
+    // Seems like jQuery mobile keeps pages cached in the DOM
+    // we have to make sure we target the right element
+    return obj
+      .closest('.ui-content')
+      .find('#hoteltitle')
+      .text();
+  }
+
+  function getUrl() {
+    var url = window.location.pathname;
+
+    url = url.replace('/', '');
+    url = url.replace('.html', '');
+
+    return url;
+  }
+
+  function setDetails(title, url) {
+    // Create our hotel object
+    var hotel = {
+      name: title,
+      hotelurl: url
+    };
+
+    // Let's assume this hotel object does not exist in our local storage
+    var thisHotelExist = false;
+
+    // Get local storage
+    var storedHotels = getHotelDetails() || [];
+
+    // Check if the hotel already exist in local storage
+    storedHotels.forEach(function(currHotel) {
+      if(currHotel.name === hotel.name) {
+        thisHotelExist = true;
+      }
+    });
+
+    // Only add to local storage if the hotel is not already there
+    if(!thisHotelExist) {
+      storedHotels.push(hotel);
+      localStorage.setItem('hotels', JSON.stringify(storedHotels));
+    }
+  }
+
+  function removeDetails(title) {
+
+    // Get local storage
+    var storedHotels = getHotelDetails() || [];
+
+    // Set an empty new list
+    var newStoredHotels = [];
+
+    storedHotels.forEach(function(currHotel) {
+      if(currHotel.name !== title) {
+        newStoredHotels.push(currHotel);
+      }
+    });
+
+    localStorage.setItem('hotels', JSON.stringify(newStoredHotels));
   }
 
   function getHotelDetails() {
@@ -137,4 +188,60 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       $('#nostorage').html('You do not have any hotels in your list yet');
     }
   }
+
 });
+
+// Inititialize map (has to be global [don't know why])
+function initialize(position) {
+
+  var lat = position.coords.latitude;
+  var lon = position.coords.longitude;
+
+  var currentPosition        = new google.maps.LatLng(lat, lon);
+  var churchillHotelPosition = new google.maps.LatLng(51.52307,-0.12426);
+
+  var mapOptions = {
+    zoom: 12,
+    center: currentPosition,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    }
+  };
+
+  var target   = document.getElementById('map-canvas');
+  var hotelMap = new google.maps.Map(target, mapOptions);
+
+  var currentPositionImage = 'http://goo.gl/JGqmEh';
+
+  var userPosition = new google.maps.Marker({
+    position: currentPosition,
+    map: hotelMap,
+    icon: currentPositionImage,
+    title: 'You are here'
+  });
+
+  var churchillHotelMarkerImage = 'http://goo.gl/3UKr2k';
+
+  var churchillPosition = new google.maps.Marker({
+    position: churchillHotelPosition,
+    map: hotelMap,
+    icon: churchillHotelMarkerImage,
+    title: 'Churchill Hotel'
+  });
+
+  var churchillHotelInfo =
+    '<div id="mappopup">'+
+      '<h4>Churchill Hotel</h4>'+
+      '<p>Five Star Hotel in the middle of capital city</p>' +
+      '<a href="churchill-hotel.html">Details</a>' +
+    '</div>';
+
+  var churchillHotelInfoWindow = new google.maps.InfoWindow({
+    content: churchillHotelInfo
+  });
+
+  google.maps.event.addListener(churchillPosition, 'click', function() {
+    churchillHotelInfoWindow.open(hotelMap, churchillPosition);
+  });
+}

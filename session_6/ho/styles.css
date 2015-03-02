@@ -1,15 +1,29 @@
+/* General */
 html, body, #map-page, #map-container {
-	height: 100%;
-	width: 100%;
 	padding: 0;
 	margin: 0;
 }
 
-div#map-canvas {
+/* Map */
+#map {
+	height: 100%;
+}
+
+#map-container {
+	height: 100%;
+}
+
+#map-canvas {
 	width: 100%;
 	height: 100%;
 }
 
+/* Favorites button */
+#addbtn.active {
+	background: #EEEEFF;
+}
+
+/* Nav */
 #navcontainer ul {
 	margin: 0;
 	padding: 0;
@@ -23,7 +37,7 @@ div#map-canvas {
 	display: block;
 	text-decoration: none;
 	padding: 3px 12px 3px 8px;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #000000;
 }
 
 #navcontainer li li a {
@@ -32,9 +46,15 @@ div#map-canvas {
 	font-weight: lighter;
 	text-decoration: none;
 	padding: 3px 3px 3px 17px;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #000000;
 }
 
 #navcontainer a:hover {
 	background-color: #E8E8E8;
+}
+
+/* Validation errors */
+label.error {
+	color: #FF7777;
+	margin-left: 8px;
 }

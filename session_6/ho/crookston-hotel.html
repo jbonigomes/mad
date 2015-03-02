@@ -16,7 +16,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
   <script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
-  <script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/additional-methods.min.js"></script>
   <script src="main.js"></script>
 </head>
 <body>
@@ -27,7 +26,7 @@
          data-icon="back"
          data-transition="slidefade"
          data-direction="reverse">Go Back</a>
-      <h1>Five Star Hotels</h1>
+      <h1>Zedland Hotels</h1>
     </div>
     <div data-role="content">
       <h2 id="hoteltitle">Crookston Hotel</h2>
@@ -38,9 +37,14 @@
         <li>Full size pool and full gym</li>
         <li>Michelin star restaurant</li>
       </ul>
-      <a href="#" class="ui-btn" id="addbtn">Favourites</a>
-      <div id="addedtofavourites"></div>
       <div id="nostorage"></div>
+      <div class="favourites"></div>
+      <a
+        id="resbtn"
+        href="login.html"
+        class="ui-btn ui-icon-calendar ui-btn-icon-left ui-corner-all">
+        Reservation
+      </a>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar" data-id="footernav">

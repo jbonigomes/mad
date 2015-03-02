@@ -16,7 +16,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
   <script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
-  <script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/additional-methods.min.js"></script>
   <script src="main.js"></script>
 </head>
 <body>
@@ -28,70 +27,67 @@
          data-direction="reverse">
         Home
       </a>
-      <h1>Zedland Hotel Finder</h1>
+      <h1>Zedland Hotels</h1>
     </div>
     <div data-role="content">
       <h2>Booking</h2>
       <form action="bookingresults.html" method="post" id="frm2">￼
 
-        <div data-role="fieldcontain">
+        <div>
           <label for="user" class="ui-hidden-accessible">First Name;</label>
           <input
             id="firstname"
             type="text"
             name="firstname"
-            data-mini="true"
-            placeholder="Username"
-            required>
+            placeholder="First Name"
+            required
+            minlength="3">
         </div>
 
-        <div data-role="fieldcontain">
+        <div>
           <label for="user" class="ui-hidden-accessible">Surname:</label>
           <input
             id="surname"
             type="text"
             name="surname"
-            data-mini="true"
-            placeholder="Username"
-            required>
+            placeholder="Surname"
+            required
+            minlength="3">
         </div>
 
-        <div data-role="fieldcontain">
+        <div>
           <label for="user" class="ui-hidden-accessible">Email:</label>
           <input
             id="email"
             type="email"
             name="email"
-            data-mini="true"
             placeholder="Email"
             required>
         </div>
 
-        <div data-role="fieldcontain">
+        <div>
           <label for="user" class="ui-hidden-accessible">From:</label>
           <input
             id="from"
             type="date"
             name="from"
-            data-mini="true"
             placeholder="From"
             required>
         </div>
 
-        <div data-role="fieldcontain">
+        <div>
           <label for="user" class="ui-hidden-accessible">To:</label>
           <input
             id="to"
             type="date"
             name="to"
-            data-mini="true"
             placeholder="To"
             required>
         </div>
 
-        <div data-role="fieldcontain">
+        <div>
           <label for="user" class="ui-hidden-accessible">Number of Persons:</label>
-          <select id="persons" name="persons" data-mini="true">
+          <select id="persons" name="persons">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -109,7 +105,7 @@
                 for="breakfast"
                 class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off ui-first-child">Breakfast
               </label>
-              <input type="checkbox" name="meal" id="breakfast" data-mini="true">
+              <input type="checkbox" name="meal" id="breakfast">
             </div>
           
             <div class="ui-checkbox ui-mini">
@@ -118,13 +114,13 @@
                 class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off ui-last-child">
                 Dinner
               </label>
-              <input type="checkbox" name="meal" id="dinner" data-mini="true">
+              <input type="checkbox" name="meal" id="dinner">
             </div>
-         </div>
+          </div>
         </div>
 
         <div data-role="fieldcontain">
-          <input type="submit" class="ui-btn" value="Submit" data-inline="true" data-mini="true">
+          <input type="submit" class="ui-btn" value="Submit">
         </div>
 
       </form>
