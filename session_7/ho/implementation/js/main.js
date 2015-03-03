@@ -26,6 +26,32 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     }, 'json');
   }
 
+  if(page == 'hotelpage') {
+    var thisPage = "#" + page;
+    var thisUrl = $(location).attr('search');
+    var thisId = thisUrl.split("=")[1];
+
+    $.get('data/hotel' + thisId +'.json', function(result, status) {
+      $('#hoteltitle',thisPage).text(result.name);
+      $('#hotelid', thisPage).html(thisId);
+      var hotel = '<p>' + result.stars + '</p><p>' + result.description + '</p>';
+      $('#contentArea', thisPage).html(hotel);
+
+      // Add the favourites button
+      var active = '';
+
+      if(isFavourite()) {
+        active = 'active';
+      }
+
+      var favouritesButton = '<a id="addbtn" href="#" class="ui-btn ui-icon-star ' +
+        'ui-btn-icon-left ui-corner-all ' + active + '">Favourites</a>';
+
+      $('.favourites').html(favouritesButton);
+
+    }, 'json');
+  }
+
   // Catch login form submit
   $('#frm1').on('submit', function(e) {
     e.preventDefault();
@@ -57,28 +83,16 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     }
   }
 
-  // Add the favourites button
-  var active = '';
-
-  if(isFavourite()) {
-    active = 'active';
-  }
-
-  var favouritesButton = '<a id="addbtn" href="#" class="ui-btn ui-icon-star ' +
-    'ui-btn-icon-left ui-corner-all ' + active + '">Favourites</a>';
-
-  $('.favourites').html(favouritesButton);
-
   // Add to favourites action
   $('body').on('click', '#addbtn', function() {
 
     if(typeof(Storage) != 'undefined') {
 
       if($(this).hasClass('active')) {
-        removeDetails(getTitle($(this)));
+        removeDetails(getTitle());
         $(this).removeClass('active');
       } else {
-        setDetails(getTitle($(this)), getUrl());
+        setDetails(getTitle(), getUrl());
         $(this).addClass('active');
       }
     } else {
@@ -114,23 +128,12 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     return exists;
   }
 
-  function getTitle(obj) {
-
-    // Seems like jQuery mobile keeps pages cached in the DOM
-    // we have to make sure we target the right element
-    return obj
-      .closest('.ui-content')
-      .find('#hoteltitle')
-      .text();
+  function getTitle() {
+    return $('#hoteltitle').text();
   }
 
   function getUrl() {
-    var url = window.location.pathname;
-
-    url = url.replace('/', '');
-    url = url.replace('.html', '');
-
-    return url;
+    return getTitle().replace(/\s+/g, '-').toLowerCase();
   }
 
   function setDetails(title, url) {

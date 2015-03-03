@@ -77,3 +77,8 @@ label.error {
 	height: 30px;
 	padding: 15px 20px;
 }
+
+/* Hide Hotel ID */
+#hotelid {
+	display: none;
+}
