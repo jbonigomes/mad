@@ -74,6 +74,19 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     }
   });
 
+  // Share buttons
+  $('#facebook').bind('tap', function (e) {
+    $('#sharechannel').html('Facebook');
+  });
+  
+  $('#twitter').bind('tap', function (e) {
+    $('#sharechannel').html('Twitter');
+  });
+  
+  $('#linkedin').bind('tap', function (e) {
+    $('#sharechannel').html('LinkedIn');
+  });
+
   function isFavourite() {
     var exists       = false;
     var url          = getUrl();

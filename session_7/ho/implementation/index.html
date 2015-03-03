@@ -10,6 +10,9 @@
     rel="stylesheet"
     type="text/css"
     href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -19,178 +22,203 @@
   <script src="js/main.js"></script>
 </head>
 <body>
-	<div data-role="page" id="home">
-		<div data-role="header">
-			<h1>Zedland Hotels</h1>
-		</div>
+  <div data-role="page" id="home">
+    <div data-role="header">
+      <h1>Zedland Hotels</h1>
+    </div>
 
-		<div data-role="content">
-			<h2>Hotels</h2>
+    <div data-role="content">
+      <h2>Hotels</h2>
 
-			<ul data-role="listview" data-inset="true">
-				<li>
-					<a href="#five" data-transition="slidefade">
-						Five Star Hotels
-					</a>
-				</li>
-				<li>
-					<a href="#four" data-transition="slidefade">
-						Four Star Hotels
-					</a>
-				</li>
-				<li>
-					<a href="#three" data-transition="slidefade">
-						Three Star Hotels
-					</a>
-				</li>
-				<li>
-					<a href="maps.html" data-transition="slidefade">
-						Hotel Locations
-					</a>
-				</li>
-				<li>
-					<a href="myhotels.html" data-transition="slidefade">
-						My Hotels
-					</a>
-				</li>
-			</ul>
-		</div>
+      <ul data-role="listview" data-inset="true">
+        <li>
+          <a href="#five" data-transition="slidefade">
+            Five Star Hotels
+          </a>
+        </li>
+        <li>
+          <a href="#four" data-transition="slidefade">
+            Four Star Hotels
+          </a>
+        </li>
+        <li>
+          <a href="#three" data-transition="slidefade">
+            Three Star Hotels
+          </a>
+        </li>
+        <li>
+          <a href="maps.html" data-transition="slidefade">
+            Hotel Locations
+          </a>
+        </li>
+        <li>
+          <a href="myhotels.html" data-transition="slidefade">
+            My Hotels
+          </a>
+        </li>
+      </ul>
+      <a
+        href="#sharepopup"
+        id="sharelinks"
+        data-rel="popup">
+        <i class="fa fa-facebook shareimage" id="facebook" alt="Share on Facebook"></i>
+        <i class="fa fa-twitter shareimage" id="twitter" alt="Share on Twitter"></i>
+        <i class="fa fa-linkedin shareimage" id="linkedin" alt="Share on LinkedIn"></i>
+      </a>
+      <div
+        id="sharepopup"
+        data-role="popup"
+        data-theme="b"
+        data-dismissible="false"
+        data-history="false"
+        data-position-to="window">
+        <div data-role="header">
+          <h1>Share</h1>
+        </div>
+        <div role="content">
+          <a href="#" data-role="button" data-rel="back">
+            Share on <span id="sharechannel"></span>
+          </a>
+          <a href="#" data-role="button" data-rel="back">Cancel</a>
+        </div>
+      </div>
+    </div>
 
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" data-id="footernav">
-				<ul>
-					<li>
-						<a href="about.html" data-prefetch>About</a>
-					</li>
-					<li>
-						<a href="contact.html" data-prefetch>Contact</a>
-					</li>
-					<li>
-						<a href="login.html" data-prefetch>Login</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-id="footernav">
+        <ul>
+          <li>
+            <a href="about.html" data-prefetch>About</a>
+          </li>
+          <li>
+            <a href="contact.html" data-prefetch>Contact</a>
+          </li>
+          <li>
+            <a href="login.html" data-prefetch>Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-	<div data-role="page" id="five">
-		<div data-role="header">
-			<a href="#home"
-			   data-icon="home"
-			   data-transition="slidefade"
-			   data-direction="reverse">
-				Home
-			</a>
-			<h1>Zedland Hotels</h1>
-		</div>
-		<div data-role="content">
-			<h2>Hotels</h2>
-			<ul data-role="listview"
-			    data-inset="true"
-			    data-filter="true"
-			    data-filter-placeholder="Enter a Hotel Name">
-				<li>
-					<a href="churchill-hotel.html"
-					   data-transition="slidefade"
-					   data-prefetch>
-					   Churchill Hotel
-					</a>
-				</li>
-				<li>
-					<a href="crookston-hotel.html"
-					   data-transition="slidefade">
-					   Crookston Hotel
-					</a>
-				</li>
-				<li>
-					<a href="fox-hotel.html"
-					   data-transition="slidefade">
-					   Fox Hotel
-					</a>
-				</li>
-				<li>
-					<a href="newline-hotel.html"
-					   data-transition="slidefade">
-					   Newline Hotel
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" data-id="footernav">
-				<ul>
-					<li>
-						<a href="about.html" data-prefetch>About</a>
-					</li>
-					<li>
-						<a href="contact.html" data-prefetch>Contact</a>
-					</li>
-					<li>
-						<a href="login.html" data-prefetch>Login</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div data-role="page" id="five">
+    <div data-role="header">
+      <a href="#home"
+         data-icon="home"
+         data-transition="slidefade"
+         data-direction="reverse">
+        Home
+      </a>
+      <h1>Zedland Hotels</h1>
+    </div>
+    <div data-role="content">
+      <h2>Hotels</h2>
+      <ul data-role="listview"
+          data-inset="true"
+          data-filter="true"
+          data-filter-placeholder="Enter a Hotel Name">
+        <li>
+          <a href="churchill-hotel.html"
+             data-transition="slidefade"
+             data-prefetch>
+             Churchill Hotel
+          </a>
+        </li>
+        <li>
+          <a href="crookston-hotel.html"
+             data-transition="slidefade">
+             Crookston Hotel
+          </a>
+        </li>
+        <li>
+          <a href="fox-hotel.html"
+             data-transition="slidefade">
+             Fox Hotel
+          </a>
+        </li>
+        <li>
+          <a href="newline-hotel.html"
+             data-transition="slidefade">
+             Newline Hotel
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-id="footernav">
+        <ul>
+          <li>
+            <a href="about.html" data-prefetch>About</a>
+          </li>
+          <li>
+            <a href="contact.html" data-prefetch>Contact</a>
+          </li>
+          <li>
+            <a href="login.html" data-prefetch>Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-	<div data-role="page" id="four">
-		<div data-role="header">
-			<a href="#home"
-			   data-icon="home"
-			   data-transition="slidefade"
-			   data-direction="reverse">
-				Home
-			</a>
-			<h1>Zedland Hotels</h1>
-		</div>
-		<div data-role="content">
-			<h2>Hotels</h2>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" data-id="footernav">
-				<ul>
-					<li>
-						<a href="about.html" data-prefetch>About</a>
-					</li>
-					<li>
-						<a href="contact.html" data-prefetch>Contact</a>
-					</li>
-					<li>
-						<a href="login.html" data-prefetch>Login</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div data-role="page" id="four">
+    <div data-role="header">
+      <a href="#home"
+         data-icon="home"
+         data-transition="slidefade"
+         data-direction="reverse">
+        Home
+      </a>
+      <h1>Zedland Hotels</h1>
+    </div>
+    <div data-role="content">
+      <h2>Hotels</h2>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-id="footernav">
+        <ul>
+          <li>
+            <a href="about.html" data-prefetch>About</a>
+          </li>
+          <li>
+            <a href="contact.html" data-prefetch>Contact</a>
+          </li>
+          <li>
+            <a href="login.html" data-prefetch>Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-	<div data-role="page" id="three">
-		<div data-role="header">
-			<a href="#home"
-			   data-icon="home"
-			   data-transition="slidefade"
-			   data-direction="reverse">
-				Home
-			</a>
-			<h1>Zedland Hotels</h1>
-		</div>
-		<div data-role="content">
-			<h2>Hotels</h2>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" data-id="footernav">
-				<ul>
-					<li>
-						<a href="about.html" data-prefetch>About</a>
-					</li>
-					<li>
-						<a href="contact.html" data-prefetch>Contact</a>
-					</li>
-					<li>
-						<a href="login.html" data-prefetch>Login</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div data-role="page" id="three">
+    <div data-role="header">
+      <a href="#home"
+         data-icon="home"
+         data-transition="slidefade"
+         data-direction="reverse">
+        Home
+      </a>
+      <h1>Zedland Hotels</h1>
+    </div>
+    <div data-role="content">
+      <h2>Hotels</h2>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-id="footernav">
+        <ul>
+          <li>
+            <a href="about.html" data-prefetch>About</a>
+          </li>
+          <li>
+            <a href="contact.html" data-prefetch>Contact</a>
+          </li>
+          <li>
+            <a href="login.html" data-prefetch>Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

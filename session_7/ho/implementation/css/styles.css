@@ -58,3 +58,22 @@ label.error {
 	color: #FF7777;
 	margin-left: 8px;
 }
+
+/* Share buttons */
+.ui-popup-container {
+	min-width: 200px;
+}
+
+#sharelinks {
+	text-decoration: none;
+}
+
+.shareimage {
+	font-size: 30px;
+	color: #000000;
+	background: #EEEEEE;
+	border-radius: 5px;
+	width: 25px;
+	height: 30px;
+	padding: 15px 20px;
+}
