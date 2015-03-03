@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Zedland Hotel Finder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="hotelmap.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script src="hotelmap.js"></script>
+	<script src="addhotel.js"></script>
+	<script src="gethotel.js"></script>
+	<script src="share.js"></script>
+	<script src="createhotellist.js"></script> 
+	<script src="showhotel.js"></script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Hotels</h2>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#five" data-transition="slidefade">Five Star Hotels</a></li>
+				<li><a href="#four" data-transition="slidefade">Four Star Hotels</a></li>
+				<li><a href="#three" data-transition="slidefade">Three Star Hotels</a></li>
+				<li><a href="maps.html">Hotel Locations</a></li>
+				<li><a href="myhotels.html">My Hotels</a></li>
+			</ul>
+			<a href="#sharepopup" id="sharelinks" data-rel="popup" >
+			<img src="images/facebook.png" id="facebook" class="shareimage" alt="Share on Facebook">
+			<img src="images/twitter.png" id="twitter" class="shareimage" alt="Share on Twitter">
+			<img src="images/linkedin.png" id="instagram" class="shareimage" alt="Share on Instagram">
+			</a>
+			<div data-role="popup" id="sharepopup" data-theme="b" data-dismissible="false"  data-history="false" data-position-to="window">
+				<div data-role="header">
+					<h1>Share</h1>
+				</div>
+				<div role="content">
+					<a href="#" data-role="button" data-rel="back">Share to <span id="sharechannel"></span></a>
+					<a href="#" data-role="button" data-rel="back">Cancel</a>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+			<ul>
+				<li><a href="about.html" data-prefetch>About</a></li>
+				<li><a href="contact.html" data-prefetch>Contact</a></li>
+				<li><a href="login.html" data-prefetch>Login</a></li>
+			</ul>
+			</div>
+		</div> 
+	</div>
+	<div data-role="page" id="five">
+		<div data-role="header">
+			<a href="#home" data-icon="home" data-transition="slidefade" data-direction="reverse">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Five Star Hotels</h2>
+			<ul id="hotellist" data-role="listview" data-inset="true" data-filter="true"></ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="four">
+		<div data-role="header">
+			<a href="#home" data-icon="home">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Four Star Hotels</h2>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="three">
+		<div data-role="header">
+			<a href="#home" data-icon="home">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Three Star Hotels</h2>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

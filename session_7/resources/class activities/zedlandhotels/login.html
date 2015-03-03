@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Zedland Hotel Finder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="hotelmap.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script src="hotelmap.js"></script>
+	<script src="addhotel.js"></script>
+	<script src="gethotel.js"></script>
+	<script src="share.js"></script>
+	<script src="createhotellist.js"></script> 
+	<script src="showhotel.js"></script>
+</head>
+<body>
+	<div data-role="page" id="login">
+		<div data-role="header">
+			<a href="zedland-hotels.html" data-icon="home">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Login</h2>
+			<form action="booking.html" method="post" id="frm1">
+				<div data-role="fieldcontain">
+					<label for="user" class="ui-hidden-accessible">User Name:</label>
+					<input type="text" name="user" id="user" data-mini="true" placeholder="Username" required>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="pass" class="ui-hidden-accessible">Password:</label>
+					<input type="password" name="pass" id="pass" data-mini="true" placeholder="Password" required>
+				</div>
+				<div data-role="fieldcontain"> 
+					<input type="submit" class="ui-btn" value="Submit" data-mini="true">
+				</div>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html" class="ui-state-persist ui-btn-active">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div> 
+</body>
+</html>

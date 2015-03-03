@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title> Mobile App Development</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+	<script src="orderofevents.js"></script>
+</head>
+<body>
+	<div data-role="page" id="from">
+		<div data-role="header">
+			<h1>Order of Events</h1>
+		</div>
+		<div data-role="content">
+			<a href="#to" data-role="button">See events when transitioning to an internal page</a>
+			<a href="orderofeventsexternalpage.html" data-role="button">See events when transitioning to an external page</a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>Footer</h4>
+		</div>
+	</div>
+	<div data-role="page" id="to">
+		<div data-role="header">
+			<h1>Order of Events</h1>
+		</div>
+		<div data-role="content">
+			<h2>See console for order of events when transitioning to an internal page</h2> 
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h4>Footer</h4>
+		</div>
+	</div>
+</body>
+</html>
