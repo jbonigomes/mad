@@ -1,13 +1,10 @@
 
-// Map page
-$(document).on('pagecontainershow', function(e, ui) {
+$(document).on('pagecontainerbeforeshow', function(e, ui) {
 
   var page = ui.toPage[0].id;
   
   if(page == 'map') {
-
     if(navigator.geolocation) {
-
       navigator.geolocation.getCurrentPosition(initialize);
     }
   }
@@ -15,10 +12,6 @@ $(document).on('pagecontainershow', function(e, ui) {
     $('#nogeolocation')
       .innerHTML = 'Geolocation is not supported by this browser.';
   }
-});
-
-// General page create event
-$(document).on('pagecreate', function() {
 
   // Catch login form submit
   $('#frm1').on('submit', function(e) {
@@ -39,17 +32,12 @@ $(document).on('pagecreate', function() {
   // Init form validation
   $('#frm1').validate();
   $('#frm2').validate();
-});
-
-
-// My hotels page
-$(document).on('pagecontainerbeforeshow', function(e, ui) {
 
   var page   = ui.toPage[0];
   var pageid = page.id;
   
-  if(pageid == 'myhotels') {
-    if(typeof(Storage) != 'undefined') {
+  if(pageid === 'myhotels') {
+    if(typeof(Storage) !== undefined) {
       displayHotelDetails(getHotelDetails());
     } else {
       $('#nostorage').text('Local storage not supported');
