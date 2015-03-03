@@ -6,11 +6,24 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   if(page == 'map') {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(initialize);
+    } else {
+      $('#nogeolocation')
+        .innerHTML = 'Geolocation is not supported by this browser.';
     }
   }
-  else {
-    $('#nogeolocation')
-      .innerHTML = 'Geolocation is not supported by this browser.';
+
+  if(page == 'five') {
+    $.get('data/hotels.json', function(result, status) {
+      var hotel = "";
+      
+      for(var i = 0; i < result.length; i++) {
+        hotel += '<li><a href="hotel.html?id=' + result[i].id + '">' +
+        result[i].name + '</a></li>';
+      }
+
+      $('#hotellist').html(hotel).listview('refresh');
+
+    }, 'json');
   }
 
   // Catch login form submit
