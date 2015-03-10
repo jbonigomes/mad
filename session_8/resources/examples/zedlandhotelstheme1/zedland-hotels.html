@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Zedland Hotel Finder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="home" data-theme="b">
+		<div data-role="header">
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Hotels</h2>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#five" data-transition="slidefade">Five Star Hotels</a></li>
+				<li><a href="#four" data-transition="slidefade">Four Star Hotels</a></li>
+				<li><a href="#three" data-transition="slidefade">Three Star Hotels</a></li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html" data-prefetch>About</a></li>
+					<li><a href="contact.html" data-prefetch>Contact</a></li>
+					<li><a href="login.html" data-prefetch>Login</a></li>
+				</ul>
+			</div>
+		</div> 
+	</div>
+	<div data-role="page" id="five" data-theme="b">
+		<div data-role="header">
+			<a href="#home" data-icon="home" data-transition="slidefade" data-direction="reverse">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Five Star Hotels</h2>
+			<ul data-role="listview" data-filter="true" data-inset="true" data-filter-placeholder="Search Hotels">
+				<li><a href="churchill-hotel.html" data-transition="slidefade" data-prefetch>Churchill Hotel</a></li>
+				<li><a href="crookston-hotel.html" data-transition="slidefade">Crookston Hotel</a></li>
+				<li><a href="fox-hotel.html" data-transition="slidefade">Fox Hotel</a></li>
+				<li><a href="newline-hotel.html" data-transition="slidefade">Newline Hotel</a></li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="four" data-theme="b">
+		<div data-role="header">
+			<a href="#home" data-icon="home">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Four Star Hotels</h2>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="three" data-theme="b">
+		<div data-role="header">
+			<a href="#home" data-icon="home">Home</a>
+			<h1>Zedland Hotels</h1>
+		</div>
+		<div data-role="content">
+			<h2>Three Star Hotels</h2>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-id="footernav">
+				<ul>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

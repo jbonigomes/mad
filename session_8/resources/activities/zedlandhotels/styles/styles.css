@@ -1,0 +1,81 @@
+#logo, #firstletter, #secondletter, #thirdletter, #taglineholder, #tagline {
+padding: 0;
+margin: 0;
+}
+
+#hotelid {
+display:none;
+}
+
+.shareimage {
+width: 5%;
+height: 5%;
+min-width: 30px;
+min-height: 30px;
+max-width: 50px;
+max-height: 50px;
+}
+
+#sharelinks {
+text-decoration: none;
+margin-left: 5%;
+}
+
+.hotel {
+width: 75%;
+height: 75%;
+max-width: 200px;
+max-height:200px;
+}
+
+#logo {
+font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+font-size: 2.5em;
+text-shadow: 0px 2px 3px #555;
+}
+
+#firstletter {
+color: #d9bc2b;
+}
+
+#secondletter {
+color: #AEB014;
+}
+
+#thirdletter {
+color: #f27c38;
+}
+
+#taglineholder {
+text-align: center;
+margin-top: 0.75em;
+margin-bottom: 1em;
+}
+
+#tagline {
+font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+font-size: 2.0em;
+color: #4d8c7a;
+text-shadow: 0px 2px 3px #999;
+}
+
+h2 {
+color: #4d8c7a;
+}
+
+.ui-content .ui-listview{
+margin: 2.5% 5% 5% 5%;
+}
+
+.ui-corner-all {
+border-radius: 10px !important;
+}
+
+.ui-header {
+border-bottom: 3px solid;
+}
+
+.ui-footer {
+border-top: 3px solid;
+}
+
