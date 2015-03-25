@@ -82,3 +82,56 @@ label.error {
 #hotelid {
 	display: none;
 }
+
+/* Header */
+.ui-header .ui-title {
+	padding: 1em 0;
+}
+
+.ui-header .ui-btn-icon-notext.ui-btn-left {
+	top: .7125em;
+}
+
+.ui-page-theme-a .ui-header .ui-btn {
+	border-color: #AADD00;
+	background-color: #AADD00;
+}
+
+/* List views */
+.ui-listview > li {
+	margin-bottom: 5px;
+}
+
+.ui-listview .ui-btn {
+	border-radius: .6em;
+}
+
+.ui-listview > li.ui-first-child > a.ui-btn {
+  -webkit-border-top-right-radius: .6em;
+  border-top-right-radius: .6em;
+  -webkit-border-top-left-radius: .6em;
+  border-top-left-radius: .6em;
+}
+
+.ui-listview > li.ui-last-child > a.ui-btn {
+	-webkit-border-bottom-right-radius: .6em;
+  border-bottom-right-radius: .6em;
+  -webkit-border-bottom-left-radius: .6em;
+  border-bottom-left-radius: .6em;
+}
+
+.ui-btn {
+	padding: 1.2em;
+	box-shadow: inset 0px -1px 1px 0px rgba(0,0,0,0.15);
+}
+
+.ui-listview.ui-corner-all {
+	border-radius: 0;
+}
+
+/* Footer */
+.ui-footer a.ui-link.ui-btn {
+	color: #FFFFFF;
+	border-color: #003344;
+	background-color: #004455;
+}
