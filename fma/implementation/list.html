@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,22 +28,20 @@
   <script src="js/main.js"></script>
 </head>
 <body>
-  <div data-role="page" id="map">
+  <div data-role="page" id="accommodation">
     <div data-role="header">
-      <a href="#home"
-         data-icon="home"
-         data-iconpos="notext"
-         data-transition="slidefade"
-         data-direction="reverse"
-         class="ui-alt-icon">
-        Home
-      </a>
       <h1>Zedland</h1>
     </div>
+    <div data-role="content">
+      <h2>View Accommodation</h2>
 
-    <div data-role="content" id="map-container">
-      <div id="map-canvas"></div>
-      <p id="nogeolocation"></p>
+      <ul
+        id="accommodationlist"
+        data-role="listview"
+        data-inset="true"
+        data-filter="true"
+        data-filter-placeholder="Search">
+      </ul>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -76,6 +75,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>

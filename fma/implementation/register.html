@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Zedland</title>
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="css/zedland.min.css">
+  <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+  <link rel="stylesheet" type="text/css" href="css/switchery.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+  <script src="js/switchery.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div data-role="page" id="booking">
+    <div data-role="header">
+      <a href="#home"
+         data-icon="home"
+         data-iconpos="notext"
+         data-transition="slidefade"
+         data-direction="reverse"
+         class="ui-alt-icon">
+        Home
+      </a>
+      <h1>Zedland</h1>
+    </div>
+    <div data-role="content">
+      <h2>Registration</h2>
+      <form action="registrationresults.html" method="post" id="frm2">￼
+
+        <div>
+          <label for="studentnumber" class="ui-hidden-accessible">
+            Student Number:
+          </label>
+          <input
+            id="studentnumber"
+            type="text"
+            name="studentnumber"
+            placeholder="Student No"
+            required
+            minlength="8"
+            maxlength="8">
+        </div>
+
+        <div>
+          <label for="firstname" class="ui-hidden-accessible">
+            First Name:
+          </label>
+          <input
+            id="firstname"
+            type="text"
+            name="firstname"
+            placeholder="First Name"
+            required
+            minlength="3">
+        </div>
+
+        <div>
+          <label for="lastname" class="ui-hidden-accessible">
+            Last Name:
+          </label>
+          <input
+            id="lastname"
+            type="text"
+            name="lastname"
+            placeholder="Last Name"
+            required
+            minlength="3">
+        </div>
+
+        <div>
+          <label for="email" class="ui-hidden-accessible">
+            Email:
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required>
+        </div>
+
+        <div>
+          <label for="programme" class="ui-hidden-accessible">
+            Programme:
+          </label>
+          <select id="programme" name="programme">
+            <option value="1">Computing</option>
+            <option value="2">Business</option>
+            <option value="3">Law</option>
+            <option value="4">Finance</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="startdate" class="ui-hidden-accessible">Start Date:</label>
+          <input
+            id="startdate"
+            type="date"
+            name="startdate"
+            placeholder="Start Date"
+            required>
+        </div>
+
+        <div>
+          <label for="require" class="ui-hidden-accessible">
+            Require:
+          </label>
+          <select id="require" name="requie">
+            <option value="1">House</option>
+            <option value="2">Flat</option>
+            <option value="3">Room</option>
+            <option value="4">Other</option>
+          </select>
+        </div>
+
+        <div data-role="fieldcontain" class="submit-btn">
+          <input type="submit" class="ui-btn" value="Register">
+        </div>
+
+      </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-id="footernav">
+        <ul>
+          <li>
+            <a href="about.html"
+               data-icon="comment"
+               data-iconpos="top"
+               data-prefetch>
+              About
+          </a>
+          </li>
+          <li>
+            <a href="contact.html"
+               data-icon="mail"
+               data-iconpos="top"
+               data-prefetch>
+              Contact
+          </a>
+          </li>
+          <li>
+            <a href="login.html"
+               data-icon="user"
+               data-iconpos="top"
+               data-prefetch>
+              Login
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

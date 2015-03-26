@@ -27,7 +27,7 @@
   <script src="js/main.js"></script>
 </head>
 <body>
-  <div data-role="page" id="map">
+  <div data-role="page" id="login">
     <div data-role="header">
       <a href="#home"
          data-icon="home"
@@ -39,12 +39,23 @@
       </a>
       <h1>Zedland</h1>
     </div>
-
-    <div data-role="content" id="map-container">
-      <div id="map-canvas"></div>
-      <p id="nogeolocation"></p>
+    <div data-role="content">
+      <h2>Lost Password</h2>
+      <form action="lostmessge.html" method="post" id="frm3">
+        <div>
+          <label for="email" class="ui-hidden-accessible">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="user"
+            placeholder="Email"
+            required>
+        </div>
+        <div class="submit-btn">
+          <input type="submit" class="ui-btn" value="Send">
+        </div>
+      </form>
     </div>
-
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar" data-id="footernav">
         <ul>
@@ -66,6 +77,7 @@
           </li>
           <li>
             <a href="login.html"
+               class="ui-state-persist ui-btn-active"
                data-icon="user"
                data-iconpos="top"
                data-prefetch>
@@ -76,6 +88,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>

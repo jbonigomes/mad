@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Zedland Hotels</title>
+  <title>Zedland</title>
 
   <link
     rel="stylesheet"
@@ -13,12 +13,17 @@
   <link
     rel="stylesheet"
     href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="css/zedland.min.css">
+  <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+  <link rel="stylesheet" type="text/css" href="css/switchery.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
   <script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+  <script src="js/switchery.min.js"></script>
   <script src="js/main.js"></script>
 </head>
 <body>
@@ -32,10 +37,41 @@
          class="ui-alt-icon">
         Home
       </a>
-      <h1>Zedland Hotels</h1>
+      <h1>Zedland</h1>
     </div>
     <div data-role="content">
       <h2>About</h2>
+      <div data-role="collapsible-set">
+        <div data-role="collapsible" data-collapsed="false">
+          <h3>Zedland Accomodation Finder</h3>
+          <p>
+            The Zedland Accommodation Finder Web Application is designed for use
+            by Zedland University students seeking accommodation in Zedland or
+            the environs. It offers quick and easy searching, reservations
+            facility, a bookmarks facility and geolocation.
+          </p>
+        </div>
+        <div data-role="collapsible">
+          <h3>Privacy</h3>
+          <p>
+            This website and its owners take a proactive approach to user
+            privacy and ensure the necessary steps are taken to protect the
+            privacy of its users throughout their visiting experience. This
+            website comply's to all UK national laws and requirements for user
+            privacy.
+          </p>
+        </div>
+        <div data-role="collapsible">
+          <h3>Accessibility</h3>
+          <p>
+            Zedland Tourism is committed to providing a website that is
+            accessible to the widest possible audience, regardless of technology
+            or ability.We are actively working to increase the accessibility and
+            usability of our website and in doing so adhere to many of the
+            available standards and guidelines.
+          </p>
+        </div>
+      </div>
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar" data-id="footernav">
@@ -43,15 +79,27 @@
           <li>
             <a href="about.html"
                class="ui-state-persist ui-btn-active"
+               data-icon="comment"
+               data-iconpos="top"
                data-prefetch>
               About
+          </a>
+          </li>
+          <li>
+            <a href="contact.html"
+               data-icon="mail"
+               data-iconpos="top"
+               data-prefetch>
+              Contact
+          </a>
+          </li>
+          <li>
+            <a href="login.html"
+               data-icon="user"
+               data-iconpos="top"
+               data-prefetch>
+              Login
             </a>
-          </li>
-          <li>
-            <a href="contact.html" data-prefetch>Contact</a>
-          </li>
-          <li>
-            <a href="login.html" data-prefetch>Login</a>
           </li>
         </ul>
       </div>

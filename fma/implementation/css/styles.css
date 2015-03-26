@@ -4,6 +4,110 @@ html, body, #map-page, #map-container {
 	margin: 0;
 }
 
+.ui-content > h2 {
+	text-align: center;
+}
+
+/* Logo */
+.logo {
+	text-align: center;
+}
+
+/* Links */
+.ui-page-theme-a a {
+	text-decoration: none;
+}
+
+.ui-page-theme-a a:hover,
+.ui-page-theme-a a:visited:hover {
+	color: #004455;
+}
+
+.ui-page-theme-a a:visited {
+	color: #AADD00;
+}
+
+/* Accordion */
+.ui-collapsible .ui-btn {
+	color: #FFFFFF;
+	background: #004455;
+	border-color: #004455;
+	padding: 10px 10px 10px 40px;
+}
+
+.ui-collapsible .ui-btn:hover,
+.ui-collapsible .ui-btn:focus {
+	color: #FFFFFF;
+	box-shadow: none;
+	background: #003344;
+	border-color: #003344;
+}
+
+/* Forms */
+.ui-input-text.ui-corner-all {
+	border-radius: .2em;
+}
+
+.ui-input-text input {
+	min-height: 3em;
+}
+
+.ui-page-theme-a .ui-body-inherit {
+	border-color: #DDDDDD;
+}
+
+.submit-btn .ui-btn {
+	color: #FFFFFF;
+	border-color: #004455;
+	background-color: #004455;
+}
+
+.submit-btn .ui-btn:hover {
+	color: #FFFFFF;
+	border-color: #003344;
+	background-color: #003344;
+}
+
+.remember-area {
+	clear: both;
+	overflow: hidden;
+}
+
+.remember-area .ui-checkbox {
+	float: left;
+}
+
+.remember-area .remember {
+	color: #AAAAAA;
+	margin-left: 10px;
+	vertical-align: -18px;
+}
+
+.remember-area .lost-password {
+	float: right;
+}
+
+.remember-area .lost-password a {
+	display: block;
+	margin-top: 18px;
+}
+
+.ui-page-theme-a .ui-select .ui-btn.ui-shadow.ui-corner-all {
+	border-color: #DDDDDD;
+	padding: .9em;
+	-webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: .2em;
+  border-radius: .2em;
+}
+
+/* Validation errors */
+label.error {
+	color: #FF7777;
+	margin-left: 8px;
+}
+
 /* Map */
 #map {
 	height: 100%;
@@ -51,12 +155,6 @@ html, body, #map-page, #map-container {
 
 #navcontainer a:hover {
 	background-color: #E8E8E8;
-}
-
-/* Validation errors */
-label.error {
-	color: #FF7777;
-	margin-left: 8px;
 }
 
 /* Share buttons */
@@ -134,4 +232,10 @@ label.error {
 	color: #FFFFFF;
 	border-color: #003344;
 	background-color: #004455;
+	padding: 2.5em 1em .5em 1em;
+}
+
+.ui-footer a.ui-link.ui-btn:hover,
+.ui-footer a.ui-link.ui-btn.ui-btn-active {
+	background-color: #AADD00;
 }

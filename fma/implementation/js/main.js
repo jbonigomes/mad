@@ -7,6 +7,11 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
 
   var page = ui.toPage[0].id;
   
+  if(page == 'login') {
+    var elem = document.querySelector('.js-switch');
+    var init = new Switchery(elem, { color: '#AADD00' });
+  }
+
   if(page == 'map') {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(initialize);
@@ -16,7 +21,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     }
   }
 
-  if(page == 'five') {
+  if(page == 'accommodation') {
     $.get('data/hotels.json', function(result, status) {
       var hotel = "";
       
@@ -25,7 +30,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
         result[i].name + '</a></li>';
       }
 
-      $('#hotellist').html(hotel).listview('refresh');
+      $('#accommodationlist').html(hotel).listview('refresh');
 
     }, 'json');
   }
@@ -60,7 +65,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   $('#frm1').on('submit', function(e) {
     e.preventDefault();
     if($(this).valid()) {
-      $.mobile.navigate('booking.html');
+      $.mobile.navigate('index.html');
     }
   });
 
@@ -68,24 +73,33 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   $('#frm2').on('submit', function(e) {
     e.preventDefault();
     if($(this).valid()) {
-      $.mobile.navigate('bookingresults.html');
+      $.mobile.navigate('registered.html');
+    }
+  });
+
+  // Catch lost password form submit
+  $('#frm3').on('submit', function(e) {
+    e.preventDefault();
+    if($(this).valid()) {
+      $.mobile.navigate('lostmessage.html');
     }
   });
 
   // Init form validation
   $('#frm1').validate();
   $('#frm2').validate();
+  $('#frm3').validate();
 
   var page   = ui.toPage[0];
   var pageid = page.id;
   
-  if(pageid === 'myhotels') {
-    if(typeof(Storage) !== undefined) {
-      displayHotelDetails(getHotelDetails());
-    } else {
-      $('#nostorage').text('Local storage not supported');
-    }
-  }
+  // if(pageid === 'myhotels') {
+  //   if(typeof(Storage) !== undefined) {
+  //     displayHotelDetails(getHotelDetails());
+  //   } else {
+  //     $('#nostorage').text('Local storage not supported');
+  //   }
+  // }
 
   // Add to favourites action
   $('body').on('click', '#addbtn', function() {
