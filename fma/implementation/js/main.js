@@ -22,15 +22,24 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   }
 
   if(page == 'accommodation') {
-    $.get('data/hotels.json', function(result, status) {
-      var hotel = "";
+    $.get('data/accommodation.json', function(result, status) {
+      var accommodation = "";
       
       for(var i = 0; i < result.length; i++) {
-        hotel += '<li><a href="hotel.html?id=' + result[i].id + '">' +
-        result[i].name + '</a></li>';
+        accommodation += '' +
+          '<li>' +
+            '<a href="hotel.html?id=' + result[i].id + '" class="ui-alt-icon">' +
+              '<img src="/img/locations/default/accommodation_' + result[i].id + '.jpg">' +
+              '<h3>' + result[i].name + '</h3>' +
+              '<p>' +
+                result[i].stars + '<br/>' +
+                result[i].description +
+              '</p>' +
+            '</a>' +
+          '</li>';
       }
 
-      $('#accommodationlist').html(hotel).listview('refresh');
+      $('#accommodationlist').html(accommodation).listview('refresh');
 
     }, 'json');
   }
@@ -59,6 +68,14 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       $('.favourites').html(favouritesButton);
 
     }, 'json');
+  }
+  
+  if(page === 'myhotels') {
+    if(typeof(Storage) !== undefined) {
+      displayHotelDetails(getHotelDetails());
+    } else {
+      $('#nostorage').text('Local storage not supported');
+    }
   }
 
   // Catch login form submit
@@ -90,17 +107,6 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   $('#frm2').validate();
   $('#frm3').validate();
 
-  var page   = ui.toPage[0];
-  var pageid = page.id;
-  
-  // if(pageid === 'myhotels') {
-  //   if(typeof(Storage) !== undefined) {
-  //     displayHotelDetails(getHotelDetails());
-  //   } else {
-  //     $('#nostorage').text('Local storage not supported');
-  //   }
-  // }
-
   // Add to favourites action
   $('body').on('click', '#addbtn', function() {
 
@@ -117,19 +123,6 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       $(this).addClass('ui-btn-hidden');
       $('#nostorage').text('Local storage not supported');
     }
-  });
-
-  // Share buttons
-  $('#facebook').bind('tap', function (e) {
-    $('#sharechannel').html('Facebook');
-  });
-  
-  $('#twitter').bind('tap', function (e) {
-    $('#sharechannel').html('Twitter');
-  });
-  
-  $('#linkedin').bind('tap', function (e) {
-    $('#sharechannel').html('LinkedIn');
   });
 
   function isFavourite() {
@@ -212,7 +205,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       details.forEach(function(detail) {
         hotel += '' +
           '<a href="' + detail.hotelurl + '.html"' +
-          '   class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right">' +
+             'class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right">' +
               detail.name +
           '</a>';
       });
@@ -265,9 +258,9 @@ function initialize(position) {
     title: 'Churchill Hotel'
   });
 
-  var churchillHotelInfo =
-    '<div id="mappopup">'+
-      '<h4>Churchill Hotel</h4>'+
+  var churchillHotelInfo = '' +
+    '<div id="mappopup">' +
+      '<h4>Churchill Hotel</h4>' +
       '<p>Five Star Hotel in the middle of capital city</p>' +
       '<a href="churchill-hotel.html">Details</a>' +
     '</div>';

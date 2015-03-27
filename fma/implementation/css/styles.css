@@ -157,6 +157,28 @@ label.error {
 	background-color: #E8E8E8;
 }
 
+/* Accommodation list */
+#accommodationlist .ui-btn {
+	box-shadow: none;
+	background: #FFFFFF;
+	padding: 0 35px 0 130px;
+
+	border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+#accommodationlist .ui-btn:hover {
+	background: #EFEFEF;
+}
+
+#accommodationlist.ui-listview > li {
+	margin-bottom: 0;
+}
+
+#accommodationlist.ui-listview .ui-li-has-thumb > .ui-btn > img:first-child {
+	max-width: 7.5em;
+}
+
 /* Share buttons */
 .ui-popup-container {
 	min-width: 200px;
