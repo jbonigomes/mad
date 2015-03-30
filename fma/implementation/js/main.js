@@ -29,11 +29,14 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
         accommodation += '' +
           '<li>' +
             '<a href="hotel.html?id=' + result[i].id + '" class="ui-alt-icon">' +
-              '<img src="/img/locations/default/accommodation_' + result[i].id + '.jpg">' +
+              '<img src="/img/locations/thumb/accommodation_' + result[i].id + '.jpg">' +
               '<h3>' + result[i].name + '</h3>' +
               '<p>' +
-                result[i].stars + '<br/>' +
-                result[i].description +
+                getStars(result[i].stars) + '<br/>' +
+                '<span class="left">' +
+                  result[i].type + ' @ ' + result[i].location +
+                '</span>' +
+                '<span class="right">&pound;' + result[i].price + 'pw</span>' +
               '</p>' +
             '</a>' +
           '</li>';
@@ -124,6 +127,24 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       $('#nostorage').text('Local storage not supported');
     }
   });
+
+  function getStars(number) {
+
+    var html = '';
+
+    for(var i = 0; i < 5; i++) {
+
+      html += '<i class="fa fa-star list-star';
+
+      if(number > i) {
+        html += ' active-star';
+      }
+
+      html += '"></i>';
+    }
+
+    return html;
+  }
 
   function isFavourite() {
     var exists       = false;

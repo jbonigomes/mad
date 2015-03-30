@@ -43,6 +43,10 @@ html, body, #map-page, #map-container {
 	border-color: #003344;
 }
 
+.ui-page-theme-a a.ui-collapsible-heading-toggle:hover {
+	color: #FFFFFF;
+}
+
 /* Forms */
 .ui-input-text.ui-corner-all {
 	border-radius: .2em;
@@ -79,8 +83,9 @@ html, body, #map-page, #map-container {
 
 .remember-area .remember {
 	color: #AAAAAA;
-	margin-left: 10px;
-	vertical-align: -18px;
+	font-size: 12px;
+	margin-left: 5px;
+	vertical-align: -15px;
 }
 
 .remember-area .lost-password {
@@ -158,10 +163,14 @@ label.error {
 }
 
 /* Accommodation list */
+#accommodationlist {
+	margin-top: 0;
+}
+
 #accommodationlist .ui-btn {
 	box-shadow: none;
 	background: #FFFFFF;
-	padding: 0 35px 0 130px;
+	padding: 0 35px 0 80px;
 
 	border-radius: 0;
 	-webkit-border-radius: 0;
@@ -179,23 +188,52 @@ label.error {
 	max-width: 7.5em;
 }
 
-/* Share buttons */
-.ui-popup-container {
-	min-width: 200px;
+.ui-input-search.ui-corner-all {
+	border-radius: 0;
+	border-bottom: none;
+	margin: 0 -20px 0 -20px;
 }
 
-#sharelinks {
-	text-decoration: none;
+.ui-input-search.ui-corner-all:focus,
+.ui-input-search.ui-corner-all.ui-focus {
+	outline: none;
+	box-shadow: none;
 }
 
-.shareimage {
-	font-size: 30px;
-	color: #000000;
-	background: #EEEEEE;
-	border-radius: 5px;
-	width: 25px;
-	height: 30px;
-	padding: 15px 20px;
+.ui-filterable .ui-btn {
+	padding: 0;
+	box-shadow: none;
+}
+
+.ui-input-search:after {
+	left: 0.5em;
+  margin-top: -9px;
+}
+
+.list-star {
+	color: #AAAAAA;
+	margin: 3px 2px 6px 0;
+}
+
+.list-star.active-star {
+	color: #AADD00;
+}
+
+.ui-listview > li.ui-li-has-thumb h3 {
+	margin-bottom: 0;
+}
+
+.ui-listview > li.ui-li-has-thumb p {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.ui-listview > li.ui-li-has-thumb p span {
+	color: #AAAAAA;
+}
+
+.ui-listview > li.ui-li-has-thumb p span.right {
+	float: right;
 }
 
 /* Hide Hotel ID */
