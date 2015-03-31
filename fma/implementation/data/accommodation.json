@@ -6,7 +6,9 @@
     "stars": 5,
     "type": "House",
     "location": "North",
-    "price": 430
+    "price": 430,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 2,
@@ -15,7 +17,9 @@
     "stars": 5,
     "type": "Flat",
     "location": "South",
-    "price": 410
+    "price": 410,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 3,
@@ -24,7 +28,9 @@
     "stars": 5,
     "type": "Room",
     "location": "East",
-    "price": 390
+    "price": 390,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 4,
@@ -33,7 +39,9 @@
     "stars": 5,
     "type": "House",
     "location": "West",
-    "price": 370
+    "price": 370,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 5,
@@ -42,7 +50,9 @@
     "stars": 5,
     "type": "Flat",
     "location": "North",
-    "price": 350
+    "price": 350,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 6,
@@ -51,7 +61,9 @@
     "stars": 5,
     "type": "Room",
     "location": "South",
-    "price": 330
+    "price": 330,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 7,
@@ -60,7 +72,9 @@
     "stars": 5,
     "type": "House",
     "location": "East",
-    "price": 310
+    "price": 310,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 8,
@@ -69,7 +83,9 @@
     "stars": 4,
     "type": "Flat",
     "location": "West",
-    "price": 290
+    "price": 290,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 9,
@@ -78,7 +94,9 @@
     "stars": 4,
     "type": "Room",
     "location": "North",
-    "price": 270
+    "price": 270,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 10,
@@ -87,7 +105,9 @@
     "stars": 4,
     "type": "House",
     "location": "South",
-    "price": 250
+    "price": 250,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 11,
@@ -96,7 +116,9 @@
     "stars": 4,
     "type": "Flat",
     "location": "East",
-    "price": 230
+    "price": 230,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 12,
@@ -105,7 +127,9 @@
     "stars": 4,
     "type": "Room",
     "location": "West",
-    "price": 210
+    "price": 210,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 13,
@@ -114,7 +138,9 @@
     "stars": 4,
     "type": "House",
     "location": "North",
-    "price": 190
+    "price": 190,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 14,
@@ -123,7 +149,9 @@
     "stars": 4,
     "type": "Flat",
     "location": "South",
-    "price": 170
+    "price": 170,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 15,
@@ -132,7 +160,9 @@
     "stars": 3,
     "type": "Room",
     "location": "East",
-    "price": 150
+    "price": 150,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 16,
@@ -141,7 +171,9 @@
     "stars": 3,
     "type": "House",
     "location": "West",
-    "price": 130
+    "price": 130,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 17,
@@ -150,7 +182,9 @@
     "stars": 3,
     "type": "Flat",
     "location": "North",
-    "price": 110
+    "price": 110,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 18,
@@ -159,7 +193,9 @@
     "stars": 3,
     "type": "Room",
     "location": "South",
-    "price": 90
+    "price": 90,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 19,
@@ -168,7 +204,9 @@
     "stars": 3,
     "type": "House",
     "location": "East",
-    "price": 70
+    "price": 70,
+    "lat": 51.52307,
+    "long": -0.12426
   },
   {
     "id": 20,
@@ -177,6 +215,8 @@
     "stars": 3,
     "type": "Flat",
     "location": "West",
-    "price": 50
+    "price": 50,
+    "lat": 51.52307,
+    "long": -0.12426
   }
 ]

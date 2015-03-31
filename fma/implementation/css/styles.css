@@ -127,6 +127,35 @@ label.error {
 	height: 100%;
 }
 
+#contact-map-canvas {
+	width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+/* Contact */
+.contact-wrap {
+	overflow: hidden;
+}
+
+.contact-wrap .half {
+	width: 50%;
+	float: left;
+}
+
+.contact-wrap .half p {
+	float: right;
+	font-size: 14px;
+}
+
+.contact-wrap .ui-btn-icon-left:after,
+.contact-wrap .ui-btn-icon-right:after,
+.contact-wrap .ui-btn-icon-top:after,
+.contact-wrap .ui-btn-icon-bottom:after,
+.contact-wrap .ui-btn-icon-notext:after {
+	background-color: #004455;
+}
+
 /* Favorites button */
 #addbtn.active {
 	background: #EEEEFF;
@@ -163,11 +192,11 @@ label.error {
 }
 
 /* Accommodation list */
-#accommodationlist {
+#accommodationlistitems {
 	margin-top: 0;
 }
 
-#accommodationlist .ui-btn {
+#accommodationlistitems .ui-btn {
 	box-shadow: none;
 	background: #FFFFFF;
 	padding: 0 35px 0 80px;
@@ -176,15 +205,15 @@ label.error {
 	-webkit-border-radius: 0;
 }
 
-#accommodationlist .ui-btn:hover {
+#accommodationlistitems .ui-btn:hover {
 	background: #EFEFEF;
 }
 
-#accommodationlist.ui-listview > li {
+#accommodationlistitems.ui-listview > li {
 	margin-bottom: 0;
 }
 
-#accommodationlist.ui-listview .ui-li-has-thumb > .ui-btn > img:first-child {
+#accommodationlistitems.ui-listview .ui-li-has-thumb > .ui-btn > img:first-child {
 	max-width: 7.5em;
 }
 
@@ -234,11 +263,6 @@ label.error {
 
 .ui-listview > li.ui-li-has-thumb p span.right {
 	float: right;
-}
-
-/* Hide Hotel ID */
-#hotelid {
-	display: none;
 }
 
 /* Header */
