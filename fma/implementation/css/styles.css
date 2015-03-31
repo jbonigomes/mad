@@ -27,6 +27,20 @@ html, body, #map-page, #map-container {
 	color: #AADD00;
 }
 
+/* Buttons for contact and accommodation pages */
+#accommodation .half .ui-btn-icon-left:after,
+#accommodation .half .ui-btn-icon-right:after,
+#accommodation .half .ui-btn-icon-top:after,
+#accommodation .half .ui-btn-icon-bottom:after,
+#accommodation .half .ui-btn-icon-notext:after,
+.contact-wrap .ui-btn-icon-left:after,
+.contact-wrap .ui-btn-icon-right:after,
+.contact-wrap .ui-btn-icon-top:after,
+.contact-wrap .ui-btn-icon-bottom:after,
+.contact-wrap .ui-btn-icon-notext:after {
+	background-color: #004455;
+}
+
 /* Accordion */
 .ui-collapsible .ui-btn {
 	color: #FFFFFF;
@@ -113,13 +127,49 @@ label.error {
 	margin-left: 8px;
 }
 
+/* Gallery */
+.galleryimages {
+	position: relative;
+}
+
+.galleryimages img {
+	width: 100%;
+	height: auto;
+}
+
+.galleryimages a {
+	top: 50%;
+	font-size: 50px;
+	margin-top: -32px;
+	position: absolute;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.galleryimages a.left-arrow {
+	left: -10px;
+}
+
+.galleryimages a.right-arrow {
+	right: -10px;
+}
+
+.galleryimages ul {
+	margin: 0;
+	padding: 0;
+	margin-top: 50px;
+	overflow: hidden;
+	list-style-type: none;
+}
+
 /* Map */
 #map {
-	height: 100%;
+	min-height: initial !important;
+	padding-bottom: 0 !important;
+	height: calc(100% - 54px);
 }
 
 #map-container {
-	height: 100%;
+	height: calc(100% - 54px);
 }
 
 #map-canvas {
@@ -146,19 +196,6 @@ label.error {
 .contact-wrap .half p {
 	float: right;
 	font-size: 14px;
-}
-
-.contact-wrap .ui-btn-icon-left:after,
-.contact-wrap .ui-btn-icon-right:after,
-.contact-wrap .ui-btn-icon-top:after,
-.contact-wrap .ui-btn-icon-bottom:after,
-.contact-wrap .ui-btn-icon-notext:after {
-	background-color: #004455;
-}
-
-/* Favorites button */
-#addbtn.active {
-	background: #EEEEFF;
 }
 
 /* Nav */
@@ -263,6 +300,56 @@ label.error {
 
 .ui-listview > li.ui-li-has-thumb p span.right {
 	float: right;
+}
+
+/* Accommodation */
+#accommodationtitle {
+	margin-bottom: 0;
+}
+
+.accommodationstars {
+	margin-top: 0;
+	text-align: center;
+}
+
+.accommodationintro span {
+	display: block;
+	color: #AAAAAA;
+}
+
+.accommodationintro span.price {
+	text-align: right;
+	font-weight: bold;
+}
+
+#accommodation .half {
+	float: left;
+	width: 50%;
+}
+
+#accommodation .favourites {
+	padding-right: 5px;
+}
+
+#accommodation .reservation {
+	padding-left: 5px;
+}
+
+#accommodation .gallerylink,
+#accommodation .mapslink {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+#accommodation .half .ui-btn {
+	padding-right: 0;
+	padding-left: 20px;
+}
+
+#addbtn.active {
+	color: #FFFFFF;
+	background: #004455;
 }
 
 /* Header */

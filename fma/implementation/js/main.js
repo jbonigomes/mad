@@ -15,23 +15,30 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   if(page == 'map') {
     if(navigator.geolocation) {
 
-      var config = {
-        lat: 51.52307,
-        long: -0.12426,
-        currPosImg: '/img/currentLocation.png',
-        pinPosImg: '/img/mapPin.png',
-        mapElement: 'contact-map-canvas',
-        currPosTxt: 'You are here',
-        markerPosTxt: 'Zedland University',
-        infobox: {
-          title: 'Zedland University',
-          content: 'Welcome to Zedland, home of the Zedland University',
-          url: 'http://www.bbk.ac.uk',
-          linktext: 'Details'
-        }
-      };
+      var thisId = getUrlId();
 
-      initialise(config);
+      $.get('data/accommodation.json', function(results) {
+        
+        var accommodationData = getAccommodationById(results, thisId);
+
+        var config = {
+          lat: accommodationData.lat,
+          long: accommodationData.long,
+          currPosImg: '/img/currentLocation.png',
+          pinPosImg: '/img/mapPin.png',
+          mapElement: 'map-canvas',
+          currPosTxt: 'You are here',
+          markerPosTxt: accommodationData.name,
+          infobox: {
+            title: accommodationData.name,
+            content: accommodationData.description,
+            url: '/accommodation.html?id=' + thisId,
+            linktext: 'Details'
+          }
+        };
+
+        initialise(config);
+      });
 
     } else {
 
@@ -70,9 +77,12 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
 
   if(page == 'accommodationlist') {
     $.get('data/accommodation.json', function(results) {
-      var accommodation = "";
-      
-      results.forEach(function(result) {
+
+      var accommodation   = "";
+      var params          = getURLparams();
+      var filteredResults = getFilteredResults(results, params);
+
+      filteredResults.forEach(function(result) {
         accommodation += '' +
           '<li>' +
             '<a href="accommodation.html?id=' + result.id + '" class="ui-alt-icon">' +
@@ -122,19 +132,14 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       });
 
       var accommodation = '' +
-        '<p>' + getStars(result.stars) + '</p>' +
-        '<p>' +
+        '<p class="accommodationstars">' + getStars(result.stars) + '</p>' +
+        '<p class="accommodationintro">' +
           '<span>' + result.type + ' @ ' + result.location + '</span>' +
           result.description +
-          '<span>&pound' + result.price + 'pw</span>' +
+          '<span class="price">&pound' + result.price + 'pw</span>' +
         '</p>';
 
-      $('#contentArea', thisPage).html(accommodation);
-      $('#accommodationtitle', thisPage).text(result.name);
-
       var active = '';
-
-      console.log(isFavourite(thisId));
 
       if(isFavourite(thisId)) {
         active = 'active';
@@ -147,7 +152,15 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
           'Favourites'
         '</a>';
 
+      var mapslink = '<a href="maps.html?id=' + thisId + '">View map</a>';
+
+      var imageslink = '<a href="gallery.html?id=' + thisId + '">View images</a>';
+
+      $('#contentArea', thisPage).html(accommodation);
+      $('#accommodationtitle', thisPage).text(result.name);
       $('.favourites').html(favouritesButton);
+      $('.gallerylink').html(imageslink);
+      $('.mapslink').html(mapslink);
 
     }, 'json');
   }
@@ -158,6 +171,26 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     } else {
       $('#nostorage').text('Local storage not supported');
     }
+  }
+
+  if(page === 'gallery') {
+    var thisId = getUrlId();
+
+    var galleryList = '' +
+      '<li>' +
+        '<img src="/img/locations/default/accommodation_' + thisId + '.jpg">' +
+      '</li>' +
+      '<li>' +
+        '<img src="/img/locations/green/accommodation_' + thisId + '.jpg">' +
+      '</li>' +
+      '<li>' +
+        '<img src="/img/locations/blue/accommodation_' + thisId + '.jpg">' +
+      '</li>' +
+      '<li>' +
+        '<img src="/img/locations/red/accommodation_' + thisId + '.jpg">' +
+      '</li>';
+
+    $('#gallery ul').html(galleryList);
   }
 
   // Catch login form submition
@@ -188,6 +221,87 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   $('#frm1').validate();
   $('#frm2').validate();
   $('#frm3').validate();
+
+  function getUrlId() {
+    return window.location.search.substring(1).replace('id=', '');
+  }
+
+  function getURLparams() {
+    var baseParams = window.location.search.substring(1);
+    var paramsList = baseParams.split('&');
+    var paramsObj  = [];
+
+    paramsList.forEach(function(param) {
+      
+      splitedParams = param.split('=');
+
+      paramsObj.push({
+        name: splitedParams[0],
+        value: splitedParams[1]
+      });
+
+    });
+
+    return paramsObj;
+  }
+
+  function meetFilters(result, params) {
+
+    var allFiltersMet = [];
+
+    params.forEach(function(param) {
+      switch(param.name) {
+        case 'min':
+          if(result.price >= param.value) {
+            allFiltersMet.push(true);
+          }
+          break;
+
+        case 'max':
+          if(result.price <= param.value) {
+            allFiltersMet.push(true);
+          }
+          break;
+
+        case 'stars':
+          if(result.stars == param.value) {
+            allFiltersMet.push(true);
+          }
+          break;
+
+        case 'location':
+          if(result.location.toLowerCase() == param.value.toLowerCase()) {
+            allFiltersMet.push(true);
+          }
+          break;
+
+        case 'type':
+          if(result.type.toLowerCase() == param.value.toLowerCase()) {
+            allFiltersMet.push(true);
+          }
+          break;
+      }
+    });
+
+    if(allFiltersMet.length == params.length) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function getFilteredResults(results, params) {
+
+    var filteredResults = [];
+
+    results.forEach(function(result) {
+      if(meetFilters(result, params)) {
+        filteredResults.push(result);
+      }
+    });
+
+    return filteredResults;
+  }
 
   function getAccommodationById(results, id) {
     
@@ -278,7 +392,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
     var newStoredAccommodation = [];
 
     storedAccommodation.forEach(function(currAccommodation) {
-      if(currAccommodation.id !== id) {
+      if(currAccommodation.id != id) {
         newStoredAccommodation.push(currAccommodation);
       }
     });

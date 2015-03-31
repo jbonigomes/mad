@@ -27,51 +27,12 @@
   <script src="js/main.js"></script>
 </head>
 <body>
-  <div data-role="page" id="favourites">
-    <div data-role="header">
-      <a href="#home"
-         data-icon="home"
-         data-iconpos="notext"
-         data-transition="slidefade"
-         data-direction="reverse"
-         class="ui-alt-icon">
-        Home
-      </a>
-      <h1>Zedland</h1>
-    </div>
+  <div data-role="page" id="gallery">
     <div data-role="content">
-      <h2>Favourites</h2>
-      <div id="favouriteslist"></div>
-      <div id="nostorage"></div>
-    </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-      <div data-role="navbar" data-id="footernav">
-        <ul>
-          <li>
-            <a href="about.html"
-               data-icon="comment"
-               data-iconpos="top"
-               data-prefetch>
-              About
-          </a>
-          </li>
-          <li>
-            <a href="contact.html"
-               data-icon="mail"
-               data-iconpos="top"
-               data-prefetch>
-              Contact
-          </a>
-          </li>
-          <li>
-            <a href="login.html"
-               data-icon="user"
-               data-iconpos="top"
-               data-prefetch>
-              Login
-            </a>
-          </li>
-        </ul>
+      <div class="galleryimages">
+        <a class="left-arrow">&lt;</a>
+        <a class="right-arrow">&gt;</a>
+        <ul></ul>
       </div>
     </div>
   </div>
