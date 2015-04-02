@@ -128,17 +128,32 @@ label.error {
 }
 
 /* Gallery */
+#gallery {
+	height: 100%;
+}
+
+#gallery .ui-content {
+	height: 100%;
+	padding: 0 1em;
+}
+
 .galleryimages {
+	height: 100%;
+	overflow: hidden;
 	position: relative;
 }
 
 .galleryimages img {
 	width: 100%;
-	height: auto;
 }
 
-.galleryimages a {
+.galleryimages a,
+.galleryimages a:active,
+.galleryimages a:focus,
+.galleryimages a:hover {
 	top: 50%;
+	z-index: 1;
+	color: #AADD00;
 	font-size: 50px;
 	margin-top: -32px;
 	position: absolute;
@@ -146,19 +161,29 @@ label.error {
 }
 
 .galleryimages a.left-arrow {
-	left: -10px;
+	left: 2px;
 }
 
 .galleryimages a.right-arrow {
-	right: -10px;
+	right: 2px;
 }
 
 .galleryimages ul {
 	margin: 0;
 	padding: 0;
-	margin-top: 50px;
-	overflow: hidden;
+	height: 100%;
+	position: relative;
 	list-style-type: none;
+	transition: all .5s ease-in-out;
+}
+
+.galleryimages ul li {
+	top: 50%;
+	position: absolute;	
+}
+
+.hide-arrow {
+	display: none;
 }
 
 /* Map */

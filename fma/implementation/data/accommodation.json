@@ -8,7 +8,7 @@
     "location": "North",
     "price": 430,
     "lat": 51.53,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "location": "South",
     "price": 410,
     "lat": 51.51,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "location": "East",
     "price": 390,
     "lat": 51.525,
-    "long": -0.11
+    "lon": -0.11
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "location": "West",
     "price": 370,
     "lat": 51.525,
-    "long": -0.145
+    "lon": -0.145
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "location": "North",
     "price": 350,
     "lat": 51.53,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "location": "South",
     "price": 330,
     "lat": 51.51,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "location": "East",
     "price": 310,
     "lat": 51.525,
-    "long": -0.11
+    "lon": -0.11
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "location": "West",
     "price": 290,
     "lat": 51.525,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 9,
@@ -96,7 +96,7 @@
     "location": "North",
     "price": 270,
     "lat": 51.53,
-    "long": -0.13
+    "lon": -0.13
   },
   {
     "id": 10,
@@ -107,7 +107,7 @@
     "location": "South",
     "price": 250,
     "lat": 51.51,
-    "long": -0.13
+    "lon": -0.13
   },
   {
     "id": 11,
@@ -118,7 +118,7 @@
     "location": "East",
     "price": 230,
     "lat": 51.51,
-    "long": -0.13
+    "lon": -0.13
   },
   {
     "id": 12,
@@ -129,7 +129,7 @@
     "location": "West",
     "price": 210,
     "lat": 51.515,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 13,
@@ -140,7 +140,7 @@
     "location": "North",
     "price": 190,
     "lat": 51.53,
-    "long": -0.12
+    "lon": -0.12
   },
   {
     "id": 14,
@@ -151,7 +151,7 @@
     "location": "South",
     "price": 170,
     "lat": 51.51,
-    "long": -0.12
+    "lon": -0.12
   },
   {
     "id": 15,
@@ -162,7 +162,7 @@
     "location": "East",
     "price": 150,
     "lat": 51.51,
-    "long": -0.12
+    "lon": -0.12
   },
   {
     "id": 16,
@@ -173,7 +173,7 @@
     "location": "West",
     "price": 130,
     "lat": 51.52,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 17,
@@ -184,7 +184,7 @@
     "location": "North",
     "price": 110,
     "lat": 51.53,
-    "long": -0.11
+    "lon": -0.11
   },
   {
     "id": 18,
@@ -195,7 +195,7 @@
     "location": "South",
     "price": 90,
     "lat": 51.51,
-    "long": -0.11
+    "lon": -0.11
   },
   {
     "id": 19,
@@ -206,7 +206,7 @@
     "location": "East",
     "price": 70,
     "lat": 51.522,
-    "long": -0.15
+    "lon": -0.15
   },
   {
     "id": 20,
@@ -217,6 +217,6 @@
     "location": "West",
     "price": 50,
     "lat": 51.525,
-    "long": -0.15
+    "lon": -0.15
   }
 ]
