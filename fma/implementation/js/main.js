@@ -72,7 +72,7 @@ $(document).on('pageshow', '#gallery', function() {
       // roughly after the animation is complete
       setTimeout(function() {
         // show the arrow again only if it is not the last item
-        if(marginleft == offset) {
+        if(marginleft < ((offset - width) - width)) {
           $('.galleryimages a.right-arrow').removeClass('hide-arrow');
         }
       }, 500);
@@ -247,8 +247,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
 
     // some useful vars
     var thisPage = "#" + page;
-    var thisUrl  = $(location).attr('search');
-    var thisId   = thisUrl.split("=")[1];
+    var thisId   = getUrlId();
 
     // get the data
     $.get('data/accommodation.json', function(results) {
@@ -257,25 +256,27 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       var result = getAccommodationById(results, thisId);
 
       // listen to the add to favourites button
-      $('body').on('click', '#favouritesbtn', function() {
-
+      $('body').on('click', '.favouritesbtn', function() {
+        var favbtn = $(this);
+        // get the accommodation id
+        var favbtnid = favbtn.data('accommodation-id');
         // only proceed if local storage is supported
         if(typeof(Storage) != 'undefined') {
           // if the accommodation exists in local storage
-          if(isFavourite(thisId)) {
+          if(isFavourite(favbtnid)) {
             // remove it
-            removeDetails(thisId);
+            removeDetails(favbtnid);
             // and give the user a visual feedback
-            $(this).removeClass('active');
+            favbtn.removeClass('active');
           } else {
             // otherwise, add it to local storage
-            setDetails(result, thisId);
+            setDetails(result, favbtnid);
             // and give the user some visual feedback
-            $(this).addClass('active');
+            favbtn.addClass('active');
           }
         } else {
           // if local storage is not supported, hide the button
-          $(this).addClass('ui-btn-hidden');
+          favbtn.addClass('ui-btn-hidden');
           // and inform the user
           $('#nostorage').text('Local storage not supported');
         }
@@ -298,9 +299,9 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       }
 
       var favouritesButton = '' +
-        '<a id="favouritesbtn" ' +
-           'href="#" ' +
-           'class="ui-btn ui-icon-star ui-btn-icon-left ui-corner-all '+active+'">' +
+        '<a href="#" ' +
+           'class="ui-btn ui-icon-star ui-btn-icon-left ui-corner-all favouritesbtn '+active+'" ' +
+           'data-accommodation-id="' + thisId + '">' +
           'Favourites'
         '</a>';
 
@@ -322,9 +323,12 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   if(page === 'favourites') {
     // if local storage is supported
     if(typeof(Storage) !== undefined) {
-      // display a list of stored accommodation
-      if(details !== null) {
 
+      // get all items from local storage
+      var details = getDetails();
+
+      // display a list of stored accommodation
+      if(details !== null && details.length > 0) {
         // build the list html
         var accommodation = '';
 
@@ -560,6 +564,16 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       var currentPositionImage = config.currPosImg;
       var zedlandPositionImage = config.pinPosImg;
 
+      var mapOptions = {
+        zoom: 13,
+        center: zedlandPosition,
+      };
+
+      var target = document.getElementById(config.mapElement);
+      var mapObj = new google.maps.Map(target, mapOptions);
+
+      mapObj.setOptions({styles: getMapStyles()});
+
       var userPosition = makeMarker({
         position: currentPosition,
         map: mapObj,
@@ -580,16 +594,6 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
         url: config.infobox.url,
         linktext: config.infobox.linktext
       });
-
-      var mapOptions = {
-        zoom: 13,
-        center: zedlandPosition,
-      };
-
-      var target = document.getElementById(config.mapElement);
-      var mapObj = new google.maps.Map(target, mapOptions);
-
-      mapObj.setOptions({styles: getMapStyles()});
 
       google.maps.event.addListener(zedlanPosition, 'click', function() {
         zedlandInfoBox.open(mapObj, zedlanPosition);

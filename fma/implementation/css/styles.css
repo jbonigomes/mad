@@ -50,7 +50,8 @@ html, body, #map-page, #map-container {
 }
 
 .ui-collapsible .ui-btn:hover,
-.ui-collapsible .ui-btn:focus {
+.ui-collapsible .ui-btn:focus,
+.ui-collapsible .ui-btn:visited {
 	color: #FFFFFF;
 	box-shadow: none;
 	background: #003344;
@@ -372,7 +373,10 @@ label.error {
 	padding-left: 20px;
 }
 
-#addbtn.active {
+.favouritesbtn.active,
+.favouritesbtn.active:hover,
+.favouritesbtn.active:focus,
+.favouritesbtn.active:active {
 	color: #FFFFFF;
 	background: #004455;
 }
