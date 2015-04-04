@@ -93,7 +93,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
           infobox: {
             title: accommodationData.name,
             content: accommodationData.description,
-            url: '/accommodation.html?id=' + thisId,
+            url: 'accommodation.html?id=' + thisId,
             linktext: 'Details',
             external: false
           }
