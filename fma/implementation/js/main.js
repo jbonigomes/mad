@@ -1,4 +1,44 @@
 
+$(document).on('pagecreate', '#accommodation', function() {
+  /* Event listeners */
+
+  /* Favourites button click */
+  // we don't need to check for local storage here, since
+  // this button will only exist in the DOM if local storage is present
+  // http://www.gajotres.net/prevent-jquery-multiple-event-triggering/
+  $('body').on('click', '.favouritesbtn', function(e) {
+
+    if(e.handled !== true) {
+      
+      e.handled = true;
+
+      var favbtn = $(this);
+
+      // get the accommodation id
+      var favbtnid = favbtn.data('accommodation-id');
+
+      $.get('data/accommodation.json', function(results) {
+
+        var result = getAccommodationById(results, favbtnid);
+
+        // if the accommodation exists in local storage
+        if(isFavourite(favbtnid)) {
+          // remove it
+          removeDetails(favbtnid);
+          // and give the user a visual feedback
+          favbtn.removeClass('active');
+        } else {
+          // otherwise, add it to local storage
+          setDetails(result);
+          // and give the user some visual feedback
+          favbtn.addClass('active');
+        }
+      }, 'json');
+    }
+  });
+});
+
+
 // Apply the theme globally
 $(document).bind('mobileinit', function () {
   $.mobile.page.prototype.options.theme = 'd';
@@ -129,7 +169,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
 
       // Add the html to the DOM
       $('.accommodationbody').html(getAccommodationBodyHTML(result));
-      $('.accommodationtitle').hmtl(result.name);
+      $('.accommodationtitle').html(result.name);
       $('.favourites').html(getFavouritesButtonHTML(thisId));
       $('.gallerylink').html(getImagesLinkHTML(thisId));
       $('.mapslink').html(getMapsLinkHTML(thisId));
@@ -160,32 +200,6 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       $('#nostorage').html('Sorry, Local Storage is not supported by your browser');
     }
   }
-
-  /* Event listeners */
-
-  /* Favourites button click */
-  // we don't need to check for local storage here, since
-  // this button will only exist in the DOM if local storage is present
-  $('body').on('click', '.favouritesbtn', function() {
-
-    var favbtn = $(this);
-
-    // get the accommodation id
-    var favbtnid = favbtn.data('accommodation-id');
-
-    // if the accommodation exists in local storage
-    if(isFavourite(favbtnid)) {
-      // remove it
-      removeDetails(favbtnid);
-      // and give the user a visual feedback
-      favbtn.removeClass('active');
-    } else {
-      // otherwise, add it to local storage
-      setDetails(result, favbtnid);
-      // and give the user some visual feedback
-      favbtn.addClass('active');
-    }
-  });
 
 
   /* Forms */
@@ -227,13 +241,13 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
  -----------------------------------------------------------------------------*/
 
 function getActiveString(id) {
-  var active = '';
+  var str = 'inactive';
 
   if(isFavourite(id)) {
-    active = 'active';
+    str = 'active';
   }
 
-  return active;
+  return str;
 }
 
 
@@ -489,13 +503,13 @@ function getAccommodationBodyHTML(accommodation) {
 }
 
 function getFavouritesButtonHTML(id) {
-  var html = '<a href="#" class="ui-btn">No Local Storage</a>';
+  var html = '<a href="#" class="ui-btn ui-corner-all">No Local Storage</a>';
 
   if(supportsLocalStorage()) {
     html = '' +
       '<a href="#" ' +
-        'class="ui-btn ui-icon-star favouritesbtn '+getActiveString(id)+'" ' +
-        'data-accommodation-id="' + id + '">' +
+         'data-accommodation-id="' + id + '" ' +
+         'class="ui-btn ui-icon-star ui-corner-all ui-btn-icon-left favouritesbtn ' + getActiveString(id) + '">' +
         'Favourites' +
       '</a>';
   }
@@ -589,6 +603,7 @@ function supportsLocalStorage() {
 
 // check if an accommodation is in local storage
 function isFavourite(id) {
+
   var exists = false;
   var storedAccommodation = getAllAccommodation() || [];
 
@@ -602,18 +617,11 @@ function isFavourite(id) {
 }
 
 // add an accommodation to local storage
-function setDetails(accommodation, id) {
+function setDetails(accommodation) {
 
-  var accommodationExist  = false;
   var storedAccommodation = getAllAccommodation() || [];
 
-  storedAccommodation.forEach(function(currAccommodation) {
-    if(currAccommodation.name === accommodation.name) {
-      accommodationExist = true;
-    }
-  });
-
-  if(!accommodationExist) {
+  if(!isFavourite(accommodation.id)) {
     storedAccommodation.push(accommodation);
     localStorage.setItem('accommodation', JSON.stringify(storedAccommodation));
   }
@@ -631,6 +639,7 @@ function removeDetails(id) {
     }
   });
 
+  localStorage.removeItem('accommodation');
   localStorage.setItem('accommodation', JSON.stringify(newStoredAccommodation));
 }
 
