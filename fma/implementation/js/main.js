@@ -140,7 +140,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
 
     // check if local storage is supported
     if(supportsLocalStorage()) {
-      
+
       // get all items from local storage
       var accommodationList = getAllAccommodation();
 
@@ -160,7 +160,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
   }
 
   /* Event listeners */
-  
+
   /* Favourites button click */
   // we don't need to check for local storage here, since
   // this button will only exist in the DOM if local storage is present
@@ -450,7 +450,7 @@ function getFilteredResults(results, params) {
 
 // returns a single accommodation based on the id
 function getAccommodationById(results, id) {
-  
+
   var result = null;
 
   results.forEach(function(item) {
@@ -488,7 +488,7 @@ function getAccommodationBodyHTML(accommodation) {
 
 function getFavouritesButtonHTML(id) {
   var html = '<a href="#" class="ui-btn">No Local Storage</a>';
-  
+
   if(supportsLocalStorage()) {
     html = '' +
       '<a href="#" ' +
@@ -653,42 +653,34 @@ function initialise(config) {
     var currentPosition = new google.maps.LatLng(lat, lon);
     var zedlandPosition = new google.maps.LatLng(config.lat, config.lon);
 
-    var currentPositionImage = config.currPosImg;
-    var zedlandPositionImage = config.pinPosImg;
-
     var mapOptions = {
       zoom: 13,
       center: zedlandPosition,
+      styles: getMapStyles()
     };
 
     var target = document.getElementById(config.mapElement);
     var mapObj = new google.maps.Map(target, mapOptions);
 
-    mapObj.setOptions({styles: getMapStyles()});
-
-    var userPosition = makeMarker({
+    var currentPositionMarker = makeMarker({
       position: currentPosition,
       map: mapObj,
-      icon: currentPositionImage,
+      icon: config.currPosImg,
       title: config.currPosTxt
     });
 
-    var zedlanPosition = makeMarker({
+    var zedlandPositionMarker = makeMarker({
       position: zedlandPosition,
       map: mapObj,
-      icon: zedlandPositionImage,
+      icon: config.pinPosImg,
       title: config.markerPosTxt
     });
 
-    var zedlandInfoBox = makeInfoBox({
-      title: config.infobox.title,
-      content: config.infobox.content,
-      url: config.infobox.url,
-      linktext: config.infobox.linktext
-    });
+    var zedlandInfoBox = makeInfoBox(config.infobox);
 
-    google.maps.event.addListener(zedlanPosition, 'click', function() {
-      zedlandInfoBox.open(mapObj, zedlanPosition);
+    google.maps.event.addListener(zedlandPositionMarker, 'click', function() {
+      console.log('clicked');
+      zedlandInfoBox.open(mapObj, zedlandPosition);
     });
   });
 }
@@ -696,7 +688,7 @@ function initialise(config) {
 // make google maps infobox
 function makeInfoBox(config) {
   var html = '' +
-    '<div id="mappopup">' +
+    '<div class="mappopup">' +
       '<h4>' + config.title + '</h4>' +
       '<p>' + config.content + '</p>' +
       '<a href="' + config.url + '">' + config.linktext + '</a>' +
