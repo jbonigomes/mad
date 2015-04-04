@@ -54,7 +54,8 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
             title: accommodationData.name,
             content: accommodationData.description,
             url: '/accommodation.html?id=' + thisId,
-            linktext: 'Details'
+            linktext: 'Details',
+            external: false
           }
         };
 
@@ -87,7 +88,8 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
           title: 'Zedland University',
           content: 'Welcome to Zedland, home of the Zedland University',
           url: 'http://www.bbk.ac.uk',
-          linktext: 'Details'
+          linktext: 'Details',
+          external: true
         }
       };
 
@@ -690,7 +692,9 @@ function makeInfoBox(config) {
     '<div class="mappopup">' +
       '<h4>' + config.title + '</h4>' +
       '<p>' + config.content + '</p>' +
-      '<a href="' + config.url + '">' + config.linktext + '</a>' +
+      '<a href="' + config.url + '" ' + (config.external ? 'target="_blank"' : '') + '>' +
+        config.linktext +
+      '</a>' +
     '</div>';
 
   return new google.maps.InfoWindow({
