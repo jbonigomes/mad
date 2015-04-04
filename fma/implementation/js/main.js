@@ -679,8 +679,7 @@ function initialise(config) {
     var zedlandInfoBox = makeInfoBox(config.infobox);
 
     google.maps.event.addListener(zedlandPositionMarker, 'click', function() {
-      console.log('clicked');
-      zedlandInfoBox.open(mapObj, zedlandPosition);
+      zedlandInfoBox.open(mapObj, zedlandPositionMarker);
     });
   });
 }
