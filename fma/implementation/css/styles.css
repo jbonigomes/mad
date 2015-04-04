@@ -373,10 +373,10 @@ label.error {
 	padding-left: 20px;
 }
 
-.favouritesbtn.active,
-.favouritesbtn.active:hover,
-.favouritesbtn.active:focus,
-.favouritesbtn.active:active {
+#accommodation.ui-page-theme-a .ui-btn.favouritesbtn.active,
+#accommodation.ui-page-theme-a .ui-btn.favouritesbtn.active:hover,
+#accommodation.ui-page-theme-a .ui-btn.favouritesbtn.active:focus,
+#accommodation.ui-page-theme-a .ui-btn.favouritesbtn.active:active {
 	color: #FFFFFF;
 	background: #004455;
 }

@@ -241,7 +241,7 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
  -----------------------------------------------------------------------------*/
 
 function getActiveString(id) {
-  var str = 'inactive';
+  var str = '';
 
   if(isFavourite(id)) {
     str = 'active';
