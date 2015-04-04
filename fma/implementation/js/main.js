@@ -85,8 +85,8 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
         var config = {
           lat: accommodationData.lat,
           lon: accommodationData.lon,
-          currPosImg: '/img/currentLocation.png',
-          pinPosImg: '/img/mapPin.png',
+          currPosImg: 'img/currentLocation.png',
+          pinPosImg: 'img/mapPin.png',
           mapElement: 'map-canvas',
           currPosTxt: 'You are here',
           markerPosTxt: accommodationData.name,
@@ -119,8 +119,8 @@ $(document).on('pagecontainerbeforeshow', function(e, ui) {
       var config = {
         lat: 51.52307,
         lon: -0.12426,
-        currPosImg: '/img/currentLocation.png',
-        pinPosImg: '/img/mapPin.png',
+        currPosImg: 'img/currentLocation.png',
+        pinPosImg: 'img/mapPin.png',
         mapElement: 'contact-map-canvas',
         currPosTxt: 'You are here',
         markerPosTxt: 'Zedland University',
