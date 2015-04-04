@@ -524,7 +524,7 @@ function getAccommodationListHTML(list) {
     accommodation += '' +
       '<li>' +
         '<a href="accommodation.html?id=' + item.id + '" class="ui-alt-icon">' +
-          '<img src="img/locations/thumb/accommodation_' + item.id + '.jpg">' +
+          '<img src="img/locations/thumb/accommodation_' + item.id + '.jpg" alt="Accommodation">' +
           '<h3>' + item.name + '</h3>' +
           '<p>' +
             getStarsHTML(item.stars) + '<br/>' +
@@ -575,16 +575,16 @@ function getStarsHTML(number) {
 function getGalleryHTML(id) {
   return '' +
     '<li>' +
-      '<img src="img/locations/default/accommodation_' + id + '.jpg">' +
+      '<img src="img/locations/default/accommodation_' + id + '.jpg" alt="Accommodation">' +
     '</li>' +
     '<li>' +
-      '<img src="img/locations/green/accommodation_' + id + '.jpg">' +
+      '<img src="img/locations/green/accommodation_' + id + '.jpg" alt="Accommodation">' +
     '</li>' +
     '<li>' +
-      '<img src="img/locations/blue/accommodation_' + id + '.jpg">' +
+      '<img src="img/locations/blue/accommodation_' + id + '.jpg" alt="Accommodation">' +
     '</li>' +
     '<li>' +
-      '<img src="img/locations/red/accommodation_' + id + '.jpg">' +
+      '<img src="img/locations/red/accommodation_' + id + '.jpg" alt="Accommodation">' +
     '</li>';
 }
 
