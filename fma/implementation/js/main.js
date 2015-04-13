@@ -27,11 +27,15 @@ $(document).on('pagecreate', '#accommodation', function() {
           removeDetails(favbtnid);
           // and give the user a visual feedback
           favbtn.removeClass('active');
+
+          $('#removedfromfavourites').popup('open');
         } else {
           // otherwise, add it to local storage
           setDetails(result);
           // and give the user some visual feedback
           favbtn.addClass('active');
+
+          $('#addedtofavourites').popup('open');
         }
       }, 'json');
     }

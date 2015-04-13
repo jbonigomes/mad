@@ -27,6 +27,11 @@ html, body, #map-page, #map-container {
 	color: #AADD00;
 }
 
+.ui-page-theme-a .ui-btn.make-blue {
+	background: #004455;
+	color: #FFFFFF;
+}
+
 /* Buttons for contact and accommodation pages */
 #accommodation .half .ui-btn-icon-left:after,
 #accommodation .half .ui-btn-icon-right:after,
@@ -256,7 +261,8 @@ label.error {
 
 /* Accommodation list */
 #accommodationlistitems {
-	margin-top: 0;
+	margin: 0;
+	border-right: 1px solid #EFEFEF;
 }
 
 #accommodationlistitems .ui-btn {
@@ -283,7 +289,7 @@ label.error {
 .ui-input-search.ui-corner-all {
 	border-radius: 0;
 	border-bottom: none;
-	margin: 0 -20px 0 -20px;
+	margin: 0;
 }
 
 .ui-input-search.ui-corner-all:focus,
